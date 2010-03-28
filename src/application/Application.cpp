@@ -1,0 +1,86 @@
+
+#include "Application.h"
+#include "debug/Debug.h"
+#include "utility/Common.h"
+#include "scene/SceneTest.h"
+#include <cassert>
+
+
+namespace application
+{
+
+	Application::Application()
+	{
+	}
+
+	Application::~Application()
+	{
+	}
+
+	void Application::Begin()
+	{
+		m_pNowScene = CreateScene(m_SceneID);
+	}
+
+	void Application::End()
+	{
+		delete m_pNowScene;
+	}
+
+	void Application::InitializeScene()
+	{
+		m_pNowScene->Initialize();
+	}
+
+	void Application::FinalizeScene()
+	{
+		m_pNowScene->Finalize();
+	}
+
+	void Application::SetStartScene(SCENE_ID scene_id)
+	{
+		m_SceneID = scene_id;
+		m_PrevSceneID = m_SceneID;
+	}
+
+	void Application::SwitchScene(SCENE_ID scene_id)
+	{
+		m_pNowScene->SetNextSceneID(scene_id);
+		m_SceneID = scene_id;
+	}
+
+	void Application::OnExec(unsigned int elapsed_time)
+	{
+		// シーンが変更されていたら
+		m_SceneID = m_pNowScene->GetNextSceneID();
+		if ( m_SceneID != m_PrevSceneID )
+		{
+			// 今のシーンを終了する
+			m_pNowScene->Finalize();
+			delete m_pNowScene;
+
+			// 次のシーンを作る
+			m_pNowScene = CreateScene(m_SceneID);
+			m_pNowScene->Initialize();
+
+			m_PrevSceneID = m_SceneID;
+		}
+
+		GetNowScene()->Update(elapsed_time);
+	}
+
+	SceneBase * Application::CreateScene(SCENE_ID scene_id)
+	{
+		switch ( scene_id )
+		{
+		case SCENE_ID_TEST:
+			return new SceneTest(scene_id);
+			break;
+		default:
+			assert(false);
+			return NULL;
+		}
+		return NULL;
+	}
+
+}

@@ -1,0 +1,9 @@
+
+hoge fuga()
+{
+	piyo * pHoge;
+	pHoge = new piyo();
+	pHoge->PiyoFugaPiyoyon();
+	return pHoge;
+}
+
