@@ -20,5 +20,9 @@ namespace graphics
 		{
 			m_pInner = pInner;
 		}
+		virtual ~Texture()
+		{
+			m_pInner->Release();
+		}
 	};
 }

@@ -12,6 +12,7 @@ namespace entity
 		, m_UV(0.f, 0.f, 1.f, 1.f)
 		, m_Color(255, 255, 255, 255)
 		, m_Rect(0.f, 0.f, 1.f, 1.f)
+		, m_pTexture(NULL)
 	{
 		DisableRendering();
 		DisableAnimating();
@@ -19,6 +20,8 @@ namespace entity
 
 	SceneEntitySprite::~SceneEntitySprite()
 	{
+		if ( m_pTexture )
+			delete m_pTexture;
 	}
 
 	void SceneEntitySprite::OnLoaded()

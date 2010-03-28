@@ -2,6 +2,7 @@
 #pragma once
 
 #include "EntityLoading.h"
+#include "debug/Debug.h"
 #include <iostream>
 
 namespace entity
@@ -14,12 +15,15 @@ namespace entity
 			: EntityLoading(filename)
 		{
 		}
-		virtual ~EntityTextPrinter() {};
+		virtual ~EntityTextPrinter()
+		{
+		}
 
 		// “Ç‚İ‚İ‚ªŠ®—¹‚µ‚½‚ÉŒÄ‚Ño‚³‚ê‚é
 		void OnLoaded()
 		{
-			DebugOut("text : %s\n", (char *)GetBuffer());
+			std::string str((char *)GetBuffer(), GetSize());
+			DebugOut("text : %s\n", str.c_str());
 		}
 	};
 }

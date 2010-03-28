@@ -4,12 +4,10 @@
 #include "debug/Debug.h"
 #include "basic/GlobalInstance.h"
 #include "job/JobManager.h"
-#include "entity/EntityTextPrinter.h"
 #include "graphics/Renderer.h"
 #include "graphics/Camera.h"
 #include "graphics/Light.h"
 #include "utility/Common.h"
-#include "entity/SceneEntitySprite.h"
 
 
 SceneSample::SceneSample(SceneID scene_id)
@@ -21,10 +19,15 @@ void SceneSample::Initialize()
 {
 	SceneRendering::Initialize();
 
-	entity::EntityTextPrinter * printer = new entity::EntityTextPrinter("resource/master/hoge.txt");
-	printer->Load();
-
 	graphics::Renderer * renderer = GetGlobalInstance()->GetRenderer();
+
+
+	// TODO : SceneEntity ‰»‚·‚é
+	m_pPrinter = new entity::EntityTextPrinter("resource/master/hoge.txt");
+	m_pPrinter->Load();
+
+	m_pSprite = new entity::SceneEntitySprite("resource/master/reversi/board.tga");
+	AddSceneEntity(m_pSprite);
 
 	// ƒJƒƒ‰‰ŠúÝ’è
 	{
@@ -35,12 +38,13 @@ void SceneSample::Initialize()
 		camera->SetUp(utility::Vector3(0.f, 1.f, 0.f));
 		camera->SetFOV(utility::DegreeToRadian(45.f));
 	}
-
-	AddSceneEntity(new entity::SceneEntitySprite("resource/master/reversi/board.tga"));
 }
 
 void SceneSample::Finalize()
 {
+	delete m_pPrinter;
+	delete m_pSprite;
+
 	SceneRendering::Finalize();
 }
 

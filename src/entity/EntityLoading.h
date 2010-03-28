@@ -20,6 +20,7 @@ namespace entity
 		void * m_pLoadedBuffer;
 		unsigned int m_LoadedSize;
 		std::string m_Filename;
+		job::JobLoading * m_pJobLoading;
 
 	public:
 		EntityLoading(std::string filename);

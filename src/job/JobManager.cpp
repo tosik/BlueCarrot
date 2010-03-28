@@ -79,13 +79,12 @@ namespace job
 	{
 		m_MutexEndedJobs.Lock();
 		{
-			// 終了したジョブの終了処理を行い、削除する
+			// 終了したジョブの終了処理を行う
 			Jobs::iterator it = m_EndedJobs.begin();
 			Jobs::iterator it_end = m_EndedJobs.end();
 			for ( ; it != it_end ; it ++ )
 			{
 				(*it)->OnEnd();
-				delete (*it);
 			}
 
 			// 全部消去

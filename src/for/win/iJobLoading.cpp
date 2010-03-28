@@ -6,6 +6,8 @@
 #include "entity/EntityLoading.h"
 #include "debug/Debug.h"
 #include "utility/Common.h"
+#include "basic/GlobalInstance.h"
+#include "utility/MemoryAllocator.h"
 
 namespace job
 {
@@ -66,7 +68,7 @@ namespace job
 		size = static_cast<std::size_t>(m_FileStream.seekg(0, std::ios::end).tellg());
 		m_FileStream.seekg(0, std::ios::beg);
 		// バッファを確保
-		(*buf) = new char[size];
+		(*buf) = GetGlobalInstance()->GetMemoryAllocatorMain()->Allocate(size);
 		// 読み込む
 		m_FileStream.read(reinterpret_cast<char *>(*buf), size);
 	}
