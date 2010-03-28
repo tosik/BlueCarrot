@@ -8,7 +8,6 @@ HINSTANCE g_hMainInstance;
 HINSTANCE g_hPrevInstance;
 LPSTR g_lpszArgs;
 int g_nWinMode;
-IDirect3DDevice9 * g_DX3DDevice;
 
 LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -52,7 +51,7 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 }
 
 // Windows 用エントリーポイント
-int WINAPI WinMain(HINSTANCE hThisInst, HINSTANCE hPrevInst, LPSTR lpszArgs, int nWinMode)
+int WINAPI WindowsEntryPoint(HINSTANCE hThisInst, HINSTANCE hPrevInst, LPSTR lpszArgs, int nWinMode)
 {
 	// Windows 呼び出し時の引数を保存する
 	g_hMainInstance = hThisInst;

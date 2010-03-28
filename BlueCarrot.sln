@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual C++ Express 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BlueCarrota", "BlueCarrot.vcproj", "{DBF70D9F-7246-429E-98D7-FF20C57DD4BE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BlueCarrot", "BlueCarrot.vcproj", "{DBF70D9F-7246-429E-98D7-FF20C57DD4BE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sample", "Sample\Sample.vcproj", "{E645DDCE-9B06-4442-BCA4-52B99AE90175}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{DBF70D9F-7246-429E-98D7-FF20C57DD4BE}.Debug|Win32.Build.0 = Debug|Win32
 		{DBF70D9F-7246-429E-98D7-FF20C57DD4BE}.Release|Win32.ActiveCfg = Release|Win32
 		{DBF70D9F-7246-429E-98D7-FF20C57DD4BE}.Release|Win32.Build.0 = Release|Win32
+		{E645DDCE-9B06-4442-BCA4-52B99AE90175}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E645DDCE-9B06-4442-BCA4-52B99AE90175}.Debug|Win32.Build.0 = Debug|Win32
+		{E645DDCE-9B06-4442-BCA4-52B99AE90175}.Release|Win32.ActiveCfg = Release|Win32
+		{E645DDCE-9B06-4442-BCA4-52B99AE90175}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

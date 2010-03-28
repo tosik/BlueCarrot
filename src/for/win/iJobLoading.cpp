@@ -60,6 +60,8 @@ namespace job
 
 	void iJobLoading::Load(void ** buf, unsigned int & size)
 	{
+		assert ( m_FileStream.good() );
+
 		// ƒTƒCƒY‚ğæ“¾
 		size = static_cast<std::size_t>(m_FileStream.seekg(0, std::ios::end).tellg());
 		m_FileStream.seekg(0, std::ios::beg);

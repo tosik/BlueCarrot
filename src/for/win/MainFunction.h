@@ -16,3 +16,4 @@ extern LPSTR g_lpszArgs;
 extern int g_nWinMode;
 
 LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+int WINAPI WindowsEntryPoint(HINSTANCE hThisInst, HINSTANCE hPrevInst, LPSTR lpszArgs, int nWinMode);
