@@ -4,13 +4,13 @@
 #include "scene/SceneRendering.h"
 
 
-class SceneTest
+class SceneSample
 	: public SceneRendering
 {
 private:
 
 public:
-	SceneTest(SCENE_ID scene_id);
+	SceneSample(SceneID scene_id);
 
 	void Initialize();
 	void Finalize();

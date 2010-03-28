@@ -2,7 +2,7 @@
 #include "Application.h"
 #include "debug/Debug.h"
 #include "utility/Common.h"
-#include "scene/SceneTest.h"
+#include "basic/Main.h"
 #include <cassert>
 
 
@@ -37,13 +37,13 @@ namespace application
 		m_pNowScene->Finalize();
 	}
 
-	void Application::SetStartScene(SCENE_ID scene_id)
+	void Application::SetStartScene(int scene_id)
 	{
 		m_SceneID = scene_id;
 		m_PrevSceneID = m_SceneID;
 	}
 
-	void Application::SwitchScene(SCENE_ID scene_id)
+	void Application::SwitchScene(int scene_id)
 	{
 		m_pNowScene->SetNextSceneID(scene_id);
 		m_SceneID = scene_id;
@@ -69,18 +69,9 @@ namespace application
 		GetNowScene()->Update(elapsed_time);
 	}
 
-	SceneBase * Application::CreateScene(SCENE_ID scene_id)
+	SceneBase * Application::CreateScene(int scene_id)
 	{
-		switch ( scene_id )
-		{
-		case SCENE_ID_TEST:
-			return new SceneTest(scene_id);
-			break;
-		default:
-			assert(false);
-			return NULL;
-		}
-		return NULL;
+		return ::CreateScene(scene_id);
 	}
 
 }

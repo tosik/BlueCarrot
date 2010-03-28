@@ -3,6 +3,7 @@
 #include "basic/GlobalInstance.h"
 #include "debug/Debug.h"
 #include "kernel/Kernel.h"
+#include "basic/Main.h"
 #include <cassert>
 
 
@@ -14,7 +15,7 @@ namespace application
 		bool result = kernel::InitializeSystem();
 		assert ( result );
 
-		Application::SetStartScene(SCENE_ID_TEST);
+		Application::SetStartScene(GetStartupSceneID());
 	}
 
 	MainApplication::~MainApplication()

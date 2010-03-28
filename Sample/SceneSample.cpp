@@ -1,5 +1,6 @@
 
-#include "scene/SceneTest.h"
+#include "SceneSample.h"
+
 #include "debug/Debug.h"
 #include "basic/GlobalInstance.h"
 #include "job/JobManager.h"
@@ -11,12 +12,12 @@
 #include "entity/SceneEntitySprite.h"
 
 
-SceneTest::SceneTest(SCENE_ID scene_id)
+SceneSample::SceneSample(SceneID scene_id)
 : SceneRendering(scene_id)
 {
 }
 
-void SceneTest::Initialize()
+void SceneSample::Initialize()
 {
 	SceneRendering::Initialize();
 
@@ -38,12 +39,12 @@ void SceneTest::Initialize()
 	AddSceneEntity(new entity::SceneEntitySprite("resource/master/reversi/board.tga"));
 }
 
-void SceneTest::Finalize()
+void SceneSample::Finalize()
 {
 	SceneRendering::Finalize();
 }
 
-void SceneTest::Update(unsigned int elapsed_time)
+void SceneSample::Update(unsigned int elapsed_time)
 {
 	SceneRendering::Update(elapsed_time);
 }

@@ -2,7 +2,7 @@
 #include "SceneBase.h"
 
 
-SceneBase::SceneBase(SCENE_ID scene_id)
+SceneBase::SceneBase(SceneID scene_id)
 : m_NextSceneID(scene_id)
 {
 }

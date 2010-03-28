@@ -17,8 +17,8 @@ namespace application
 		SceneBase * m_pNowScene;
 
 		// シーンID
-		SCENE_ID m_SceneID;
-		SCENE_ID m_PrevSceneID;
+		SceneID m_SceneID;
+		SceneID m_PrevSceneID;
 
 
 	public:
@@ -39,14 +39,14 @@ namespace application
 
 
 		// 開始シーンを設定する
-		void SetStartScene(SCENE_ID scene_id);
+		void SetStartScene(SceneID scene_id);
 
 		// シーンを変更する
 		// 次のフレームでシーンが変更されます
-		void SwitchScene(SCENE_ID scene_id);
+		void SwitchScene(SceneID scene_id);
 
 		// シーンを生成する
-		SceneBase * CreateScene(SCENE_ID scene_id);
+		SceneBase * CreateScene(SceneID scene_id);
 
 		SceneBase * GetNowScene()
 		{

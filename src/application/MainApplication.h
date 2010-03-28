@@ -10,8 +10,6 @@
 
 namespace application
 {
-	class iMainApplication;
-
 	// アプリケーション用クラス
 	class MainApplication
 		: public JobApplication

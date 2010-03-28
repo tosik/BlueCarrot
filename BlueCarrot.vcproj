@@ -212,14 +212,6 @@
 				RelativePath=".\src\scene\SceneRendering.h"
 				>
 			</File>
-			<File
-				RelativePath=".\src\scene\SceneTest.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\scene\SceneTest.h"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Network"

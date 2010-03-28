@@ -19,7 +19,7 @@ private:
 
 public:
 
-	SceneRendering(SCENE_ID scene_id);
+	SceneRendering(SceneID scene_id);
 	virtual ~SceneRendering();
 
 	virtual void Initialize();

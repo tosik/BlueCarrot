@@ -10,7 +10,7 @@
 #include <cassert>
 
 
-SceneRendering::SceneRendering(SCENE_ID scene_id)
+SceneRendering::SceneRendering(SceneID scene_id)
 	: SceneBase(scene_id)
 {
 }

@@ -10,22 +10,22 @@ class SceneBase
 
 private:
 
-	SCENE_ID m_NextSceneID;
+	SceneID m_NextSceneID;
 
 public:
 
-	SceneBase(SCENE_ID scene_id);
+	SceneBase(SceneID scene_id);
 	virtual ~SceneBase();
 
 	virtual void Initialize();
 	virtual void Finalize();
 	virtual void Update(unsigned int elapsed_time);
 
-	void SetNextSceneID(SCENE_ID scene_id)
+	void SetNextSceneID(SceneID scene_id)
 	{
 		m_NextSceneID = scene_id;
 	}
-	SCENE_ID GetNextSceneID()
+	SceneID GetNextSceneID()
 	{
 		return m_NextSceneID;
 	}
