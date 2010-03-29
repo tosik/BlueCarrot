@@ -277,6 +277,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\graphics\Texture.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\graphics\Texture.h"
 				>
 			</File>
@@ -585,6 +589,10 @@
 				>
 			</File>
 		</Filter>
+		<File
+			RelativePath=".\src\for\win\iTexture.cpp"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>

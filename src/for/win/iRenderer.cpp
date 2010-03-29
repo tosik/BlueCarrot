@@ -61,21 +61,6 @@ namespace graphics
 		return reinterpret_cast<iRenderer *>(m_pImpl)->ProcessMessage();
 	}
 
-	Texture * Renderer::CreateTexture(std::wstring filename)
-	{
-		return reinterpret_cast<iRenderer *>(m_pImpl)->CreateTexture(filename);
-	}
-
-	Texture * Renderer::CreateTextureFromBuffer(void * buffer, unsigned int size)
-	{
-		return reinterpret_cast<iRenderer *>(m_pImpl)->CreateTextureFromBuffer(buffer, size);
-	}
-
-	void Renderer::ReleaseTexture(Texture * pTexture)
-	{
-		reinterpret_cast<iRenderer *>(m_pImpl)->ReleaseTexture(pTexture);
-	}
-
 
 	iRenderer::iRenderer()
 		: m_IsFirstFrame(true)
@@ -305,32 +290,6 @@ namespace graphics
 		}
 
 		return true;
-	}
-
-	Texture * iRenderer::CreateTexture(std::wstring filename)
-	{
-		IDirect3DTexture9 * pInner;
-		D3DXCreateTextureFromFile(GetGlobalInstance()->GetDeviceInformation()->pDevice,
-			filename.c_str(), &pInner);
-		Texture * pTexture = new Texture;
-		pTexture->SetInner(pInner);
-		return pTexture;
-	}
-
-	Texture * iRenderer::CreateTextureFromBuffer(void * buffer, unsigned int size)
-	{
-		IDirect3DTexture9 * pInner;
-		D3DXCreateTextureFromFileInMemory(GetGlobalInstance()->GetDeviceInformation()->pDevice,
-			buffer, size, &pInner);
-		Texture * pTexture = new Texture;
-		pTexture->SetInner(pInner);
-		return pTexture;
-	}
-
-	void iRenderer::ReleaseTexture(Texture * pTexture)
-	{
-		pTexture->GetInner()->Release();
-		delete pTexture;
 	}
 
 }

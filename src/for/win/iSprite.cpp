@@ -40,7 +40,7 @@ namespace graphics
 
 	void Sprite::SetTexture(Texture * pTexture)
 	{
-		reinterpret_cast<iSprite *>(m_pImpl)->SetTexture(pTexture->GetInner());
+		reinterpret_cast<iSprite *>(m_pImpl)->SetTexture(reinterpret_cast<IDirect3DTexture9 *>(pTexture->GetInner()));
 	}
 
 

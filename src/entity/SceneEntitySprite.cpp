@@ -26,8 +26,7 @@ namespace entity
 
 	void SceneEntitySprite::OnLoaded()
 	{
-		m_pTexture = GetGlobalInstance()->GetRenderer()
-			->CreateTextureFromBuffer(GetBuffer(), GetSize());
+		m_pTexture = new graphics::Texture(GetBuffer(), GetSize());
 
 		EnableRendering();
 		EnableAnimating();

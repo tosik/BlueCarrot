@@ -73,6 +73,5 @@ namespace graphics
 
 		Texture * CreateTexture(std::wstring filename);
 		Texture * CreateTextureFromBuffer(void * buffer, unsigned int size);
-		void ReleaseTexture(Texture * pTexture);
 	};
 }
