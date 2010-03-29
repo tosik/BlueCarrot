@@ -22,9 +22,30 @@ namespace entity
 		SceneEntitySprite(std::string filename);
 		virtual ~SceneEntitySprite();
 
-		void Draw();
-		void CalculateAnimation();
-		void OnLoaded();
+		virtual void Draw();
+		virtual void CalculateAnimation();
+		virtual void OnLoaded();
+
+		graphics::Texture * GetTexture()
+		{
+			return m_pTexture;
+		}
+		utility::UV GetUV()
+		{
+			return m_UV;
+		}
+		utility::Color GetColor()
+		{
+			return m_Color;
+		}
+		bool IsEnableAlphatest()
+		{
+			return m_IsEnableAlphatest;
+		}
+		bool IsEnableAlphablending()
+		{
+			return m_IsEnableAlphablending;
+		}
 
 		void EnableAlphatest()
 		{

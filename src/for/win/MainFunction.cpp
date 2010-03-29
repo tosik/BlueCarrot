@@ -32,8 +32,8 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		break;
 
 	case WM_SETCURSOR:
-		// カーソルはなし
-		SetCursor(NULL);
+		//// カーソルはなし
+		//SetCursor(NULL);
 		break;
 
 	case WM_PAINT:

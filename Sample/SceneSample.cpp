@@ -1,5 +1,6 @@
 
 #include "SceneSample.h"
+#include "SceneID.h"
 
 #include "debug/Debug.h"
 #include "basic/GlobalInstance.h"
@@ -13,7 +14,7 @@
 
 
 SceneSample::SceneSample(SceneID scene_id)
-: SceneRendering(scene_id)
+	: SceneRendering(scene_id)
 {
 }
 

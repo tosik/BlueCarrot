@@ -3,6 +3,7 @@
 #include "for/win/MainFunction.h"
 #include "scene/SceneID.h"
 #include "SceneSample.h"
+#include "SceneID.h"
 
 int WINAPI WinMain(HINSTANCE hThisInst, HINSTANCE hPrevInst, LPSTR lpszArgs, int nWinMode)
 {
@@ -11,10 +12,6 @@ int WINAPI WinMain(HINSTANCE hThisInst, HINSTANCE hPrevInst, LPSTR lpszArgs, int
 }
 
 
-enum
-{
-	SCENE_ID_SAMPLE,
-};
 
 SceneBase * CreateScene(SceneID scene_id)
 {

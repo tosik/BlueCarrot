@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(SolutionDir)src\&quot;"
+				AdditionalIncludeDirectories="C:\Users\tosik\Documents\prog\BitboardCA\include;&quot;$(SolutionDir)src\&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -116,7 +116,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="&quot;$(SolutionDir)src\&quot;"
+				AdditionalIncludeDirectories="C:\Users\tosik\Documents\prog\BitboardCA\include;&quot;$(SolutionDir)src\&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -201,6 +201,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\SceneID.h"
+				>
+			</File>
+			<File
 				RelativePath=".\SceneSample.h"
 				>
 			</File>
@@ -215,6 +219,18 @@
 			Name="Libs"
 			>
 			<File
+				RelativePath="..\Release\BlueCarrot.lib"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath="..\Debug\BlueCarrot.lib"
 				>
 				<FileConfiguration
@@ -226,17 +242,49 @@
 					/>
 				</FileConfiguration>
 			</File>
+		</Filter>
+		<Filter
+			Name="BitboardCA"
+			>
 			<File
-				RelativePath="..\Release\BlueCarrot.lib"
+				RelativePath="..\..\BitboardCA\include\bbcommon.h"
 				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\BitboardCA\src\BitboardViewer.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\BitboardCA\include\BitboardViewer.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\BitboardCA\src\GenerationOuterTotalisticCA.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\BitboardCA\include\GenerationOuterTotalisticCA.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\BitboardCA\include\IViewableBitboard.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\BitboardCA\src\LargeBitboard.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\BitboardCA\include\LargeBitboard.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\BitboardCA\src\OuterTotalisticCA.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\BitboardCA\include\OuterTotalisticCA.h"
+				>
 			</File>
 		</Filter>
 	</Files>

@@ -5,7 +5,6 @@
 #include "entity/EntityTextPrinter.h"
 #include "Ball.h"
 
-
 class SceneSample
 	: public SceneRendering
 {
