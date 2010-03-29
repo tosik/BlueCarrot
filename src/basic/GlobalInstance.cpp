@@ -5,8 +5,8 @@
 #include "graphics/Renderer.h"
 #include "graphics/DeviceInformation.h"
 #include "network/Network.h"
-#include "utility/MemoryAllocator.h"
 #include "job/JobManager.h"
+#include "utility/KeyManager.h"
 
 
 
@@ -17,10 +17,12 @@ GlobalInstance::GlobalInstance()
 	m_pDeviceInformation = graphics::CreateDeviceInformation();
 	m_pNetwork = new network::Network();
 	m_pJobManager = new job::JobManager();
+	m_pKeyManager = new utility::KeyManager();
 }
 
 GlobalInstance::~GlobalInstance()
 {
+	delete m_pKeyManager;
 	delete m_pJobManager;
 	delete m_pNetwork;
 	graphics::DeleteDeviceInformation(m_pDeviceInformation);

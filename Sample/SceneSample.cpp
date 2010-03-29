@@ -8,6 +8,8 @@
 #include "graphics/Camera.h"
 #include "graphics/Light.h"
 #include "utility/Common.h"
+#include "utility/KeyManager.h"
+#include "utility/Type.h"
 
 
 SceneSample::SceneSample(SceneID scene_id)
@@ -51,5 +53,30 @@ void SceneSample::Finalize()
 void SceneSample::Update(unsigned int elapsed_time)
 {
 	SceneRendering::Update(elapsed_time);
+
+	if ( GetGlobalInstance()->GetKeyManager()->IsPushing(utility::key::Up) )
+	{
+		m_pSprite->SetRect(utility::Rect<float>(150, 0, 50, 50));
+	}
+	if ( GetGlobalInstance()->GetKeyManager()->IsPushing(utility::key::Down) )
+	{
+		m_pSprite->SetRect(utility::Rect<float>(150, 300, 50, 50));
+	}
+	if ( GetGlobalInstance()->GetKeyManager()->IsPushing(utility::key::Left) )
+	{
+		m_pSprite->SetRect(utility::Rect<float>(0, 150, 50, 50));
+	}
+	if ( GetGlobalInstance()->GetKeyManager()->IsPushing(utility::key::Right) )
+	{
+		m_pSprite->SetRect(utility::Rect<float>(300, 150, 50, 50));
+	}
+	if ( GetGlobalInstance()->GetKeyManager()->IsPushing(utility::key::OK) )
+	{
+		m_pSprite->EnableRendering();
+	}
+	if ( GetGlobalInstance()->GetKeyManager()->IsPushing(utility::key::Cancel) )
+	{
+		m_pSprite->DisableRendering();
+	}
 }
 

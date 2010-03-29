@@ -4,16 +4,20 @@
 // Ž©“®“I‚ÉŽÀ‘•‚·‚é
 // usage:
 /*
-class iHoge;
 class Hoge
-	: utility::AutoImpl<iHoge>
+	: utility::AutoImpl
 {
 	void CreateImpl();
+	void DestroyImpl();
 };
 ---
 void iHoge::CreateImpl()
 {
 	m_pImpl = new iHoge();
+}
+void iHoge::DestroyImpl()
+{
+	delete m_pImpl;
 }
 */
 

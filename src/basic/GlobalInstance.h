@@ -20,6 +20,10 @@ namespace job
 {
 	class JobManager;
 }
+namespace utility
+{
+	class KeyManager;
+}
 
 
 
@@ -31,6 +35,7 @@ private:
 	network::Network * m_pNetwork;
 	application::MainApplication * m_pApplication;
 	job::JobManager * m_pJobManager;
+	utility::KeyManager * m_pKeyManager;
 
 	// アロケータ
 	// [NOTE] アロケータはメンバで持つ
@@ -46,6 +51,7 @@ public:
 	network::Network * GetNetwork() { return m_pNetwork; }
 	application::MainApplication * GetApplication() { return m_pApplication; }
 	job::JobManager * GetJobManager() { return m_pJobManager; }
+	utility::KeyManager * GetKeyManager() { return m_pKeyManager; }
 
 	utility::MemoryAllocatorMain * GetMemoryAllocatorMain() { return &m_MemoryAllocatorMain; }
 	utility::MemoryAllocatorSub * GetMemoryAllocatorSub() { return &m_MemoryAllocatorSub; }

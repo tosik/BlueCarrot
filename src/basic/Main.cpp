@@ -3,6 +3,7 @@
 #include "basic/GlobalInstance.h"
 #include "graphics/Renderer.h"
 #include "utility/Time.h"
+#include "utility/KeyManager.h"
 
 
 // 時刻
@@ -36,6 +37,9 @@ void EntryPoint()
 			bool result = renderer->ProcessMessage();
 			if ( ! result )
 				break;
+
+			// キーボードの状態更新
+			GetGlobalInstance()->GetKeyManager()->Update();
 
 			// 更新(前フレームとの時刻の差分を与える)
 			pApp->OnExec(time - g_Time);
