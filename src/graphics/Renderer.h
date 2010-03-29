@@ -10,8 +10,6 @@
 
 namespace graphics
 {
-	class iRenderer;
-
 	class Renderer
 		: public utility::AutoImpl
 	{

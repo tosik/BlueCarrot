@@ -23,6 +23,7 @@ namespace application
 
 	void RenderingApplication::End()
 	{
+		GetGlobalInstance()->GetRenderer()->Finalize();
 	}
 
 	void RenderingApplication::OnExec(unsigned int /*elapsed_time*/)

@@ -70,8 +70,7 @@ namespace graphics
 
 	void iSprite::Finalize()
 	{
-		// [TODO] ‚±‚ê‚Å‚æ‚¢H
-		LocalFree(m_pVB);
+		m_pVB->Release();
 	}
 
 	void iSprite::Draw()

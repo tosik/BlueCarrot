@@ -76,8 +76,8 @@ namespace graphics
 
 	void iTextRenderer::Finalize()
 	{
-		delete m_pSprite; // TODO : ‚±‚ê‚Å‚æ‚¢H
-		delete m_pFont; // TODO : ‚±‚ê‚Å‚æ‚¢H
+		m_pSprite->Release();
+		m_pFont->Release();
 	}
 
 	void iTextRenderer::Begin()
