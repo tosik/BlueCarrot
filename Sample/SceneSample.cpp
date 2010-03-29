@@ -28,7 +28,7 @@ void SceneSample::Initialize()
 	m_pPrinter = new entity::EntityTextPrinter("resource/master/hoge.txt");
 	m_pPrinter->Load();
 
-	m_pSprite = new entity::SceneEntitySprite("resource/master/reversi/board.tga");
+	m_pSprite = new entity::SceneEntitySprite("resource/master/reversi/white.tga");
 	AddSceneEntity(m_pSprite);
 
 	// ƒJƒƒ‰‰Šúİ’è
