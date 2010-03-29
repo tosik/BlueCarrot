@@ -30,6 +30,7 @@ void SceneSample::Initialize()
 
 	m_pSprite = new entity::SceneEntitySprite("resource/master/reversi/white.tga");
 	AddSceneEntity(m_pSprite);
+	m_pSprite->EnableAlphablending();
 
 	// ƒJƒƒ‰‰Šúİ’è
 	{

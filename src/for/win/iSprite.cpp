@@ -33,9 +33,9 @@ namespace graphics
 		reinterpret_cast<iSprite *>(m_pImpl)->Draw();
 	}
 
-	void Sprite::Set(const utility::Rect<float> &rect, const utility::UV &uv, const utility::Color & color)
+	void Sprite::Set(const utility::Rect<float> &rect, const utility::UV &uv, const utility::Color & color, bool is_enable_alphatest, bool is_enable_alphablending)
 	{
-		reinterpret_cast<iSprite *>(m_pImpl)->Set(rect, uv, ToDXColor(color));
+		reinterpret_cast<iSprite *>(m_pImpl)->Set(rect, uv, ToDXColor(color), is_enable_alphatest, is_enable_alphablending);
 	}
 
 	void Sprite::SetTexture(Texture * pTexture)
@@ -93,7 +93,7 @@ namespace graphics
 		ASSERT_HR( hr );
 	}
 
-	void iSprite::Set(const utility::Rect<float> &rect, const utility::UV &uv, const D3DCOLOR & color)
+	void iSprite::Set(const utility::Rect<float> &rect, const utility::UV &uv, const D3DCOLOR & color, bool is_enable_alphatest, bool is_enable_alphablending)
 	{
 		ASSERT( m_pVB );
 
@@ -140,17 +140,26 @@ namespace graphics
 		hr = m_pVB->Unlock();
 		ASSERT_HR( hr );
 
-		// TODO : ここであるかどうかもう一度検討すべし
 		{
-			// アルファテスト有効
-			//m_pDevice->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
-			//m_pDevice->SetRenderState(D3DRS_ALPHAREF, 0xff);
-			//m_pDevice->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
+			// アルファチャンネル使用を一旦無効
+			m_pDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, FALSE);
+			m_pDevice->SetRenderState(D3DRS_ALPHATESTENABLE, FALSE);
 
-			// アルファブレンディング有効
-			m_pDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
-			m_pDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
-			m_pDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+			if ( is_enable_alphatest )
+			{
+				// アルファテスト有効
+				m_pDevice->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
+				m_pDevice->SetRenderState(D3DRS_ALPHAREF, 0xff);
+				m_pDevice->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
+			}
+
+			if ( is_enable_alphablending )
+			{
+				// アルファブレンディング有効
+				m_pDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
+				m_pDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
+				m_pDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+			}
 		}
 	}
 

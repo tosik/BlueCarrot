@@ -41,7 +41,7 @@ namespace graphics
 		void Begin();
 		void End();
 
-		void DrawRect(utility::Rect<float> &rect, utility::UV &uv, utility::Color color, Texture * pTexture);
+		void DrawRect(utility::Rect<float> &rect, utility::UV &uv, utility::Color color, Texture * pTexture, bool is_enable_alphatest, bool is_enable_alphablending);
 
 		TextRenderer * GetTextRenderer()
 		{

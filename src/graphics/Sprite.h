@@ -27,7 +27,7 @@ namespace graphics
 		void Initialize(DeviceInformation * pDeviceInformation);
 		void Finalize();
 
-		void Set(const utility::Rect<float> &rect, const utility::UV &uv, const utility::Color & color);
+		void Set(const utility::Rect<float> &rect, const utility::UV &uv, const utility::Color & color, bool is_enable_alphatest, bool is_enable_alphablending);
 
 		void SetTexture(Texture * pTexture);
 	};

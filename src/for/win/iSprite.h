@@ -49,7 +49,7 @@ namespace graphics
 		void Initialize(IDirect3DDevice9 * device);
 		void Finalize();
 
-		void Set(const utility::Rect<float> &rect, const utility::UV &uv, const D3DCOLOR & color);
+		void Set(const utility::Rect<float> &rect, const utility::UV &uv, const D3DCOLOR & color, bool is_enable_alphatest, bool is_enable_alphablending);
 
 		void SetTexture(IDirect3DTexture9 * pTexture);
 

@@ -33,9 +33,9 @@ namespace graphics
 		FinalizeDevice();
 	}
 
-	void Renderer::DrawRect(utility::Rect<float> &rect, utility::UV &uv, utility::Color color, Texture * pTexture)
+	void Renderer::DrawRect(utility::Rect<float> &rect, utility::UV &uv, utility::Color color, Texture * pTexture, bool is_enable_alphatest, bool is_enable_alphablending)
 	{
-		GetSprite()->Set(rect, uv, color);
+		GetSprite()->Set(rect, uv, color, is_enable_alphatest, is_enable_alphablending);
 		GetSprite()->SetTexture(pTexture);
 		GetSprite()->Draw();
 	}

@@ -16,6 +16,8 @@ namespace entity
 	{
 		DisableRendering();
 		DisableAnimating();
+		DisableAlphatest();
+		DisableAlphablending();
 	}
 
 	SceneEntitySprite::~SceneEntitySprite()
@@ -34,7 +36,7 @@ namespace entity
 
 	void SceneEntitySprite::Draw()
 	{
-		GetGlobalInstance()->GetRenderer()->DrawRect(m_Rect, m_UV, m_Color, m_pTexture);
+		GetGlobalInstance()->GetRenderer()->DrawRect(m_Rect, m_UV, m_Color, m_pTexture, m_IsEnableAlphatest, m_IsEnableAlphablending);
 	}
 
 	void SceneEntitySprite::CalculateAnimation()
