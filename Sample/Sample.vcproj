@@ -179,6 +179,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\Ball.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Main.cpp"
 				>
 			</File>
@@ -192,6 +196,10 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\Ball.h"
+				>
+			</File>
 			<File
 				RelativePath=".\SceneSample.h"
 				>
@@ -207,10 +215,10 @@
 			Name="Libs"
 			>
 			<File
-				RelativePath="..\Release\BlueCarrot.lib"
+				RelativePath="..\Debug\BlueCarrot.lib"
 				>
 				<FileConfiguration
-					Name="Debug|Win32"
+					Name="Release|Win32"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -219,10 +227,10 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\Debug\BlueCarrot.lib"
+				RelativePath="..\Release\BlueCarrot.lib"
 				>
 				<FileConfiguration
-					Name="Release|Win32"
+					Name="Debug|Win32"
 					ExcludedFromBuild="true"
 					>
 					<Tool

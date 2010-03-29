@@ -49,7 +49,7 @@ namespace utility
 			return (*this);
 		}
 
-		void SetSize(const utility::Size<float> & rect)
+		void SetSize(const utility::Size<T> & rect)
 		{
 			width = rect.width;
 			height = rect.height;
@@ -89,7 +89,7 @@ namespace utility
 			return (*this);
 		}
 
-		void SetPosition(const utility::Position<float> & rect)
+		void SetPosition(const utility::Position<T> & rect)
 		{
 			left = rect.left;
 			top = rect.top;
@@ -122,7 +122,7 @@ namespace utility
 			height = size.height;
 		}
 
-		void SetRect(const utility::Rect<float> & rect)
+		void SetRect(const utility::Rect<T> & rect)
 		{
 			SetPosition(rect);
 			SetSize(rect);

@@ -28,10 +28,8 @@ void SceneSample::Initialize()
 	m_pPrinter = new entity::EntityTextPrinter("resource/master/hoge.txt");
 	m_pPrinter->Load();
 
-	m_pSprite = new entity::SceneEntitySprite("resource/master/reversi/white.tga");
-	AddSceneEntity(m_pSprite);
-	m_pSprite->EnableAlphablending();
-	m_pSprite->SetRect(utility::Rect<float>(0, 0, 30, 30));
+	m_pBall = new Ball();
+	AddSceneEntity(m_pBall);
 
 	// ƒJƒƒ‰‰ŠúÝ’è
 	{
@@ -47,7 +45,7 @@ void SceneSample::Initialize()
 void SceneSample::Finalize()
 {
 	delete m_pPrinter;
-	delete m_pSprite;
+	delete m_pBall;
 
 	SceneRendering::Finalize();
 }
@@ -58,27 +56,27 @@ void SceneSample::Update(unsigned int elapsed_time)
 
 	if ( GetGlobalInstance()->GetKeyManager()->IsPushing(utility::key::Up) )
 	{
-		m_pSprite->Move(utility::Position<float>(0, -10));
+		m_pBall->Move(utility::Position<float>(0, -10));
 	}
 	if ( GetGlobalInstance()->GetKeyManager()->IsPushing(utility::key::Down) )
 	{
-		m_pSprite->Move(utility::Position<float>(0, 10));
+		m_pBall->Move(utility::Position<float>(0, 10));
 	}
 	if ( GetGlobalInstance()->GetKeyManager()->IsPushing(utility::key::Left) )
 	{
-		m_pSprite->Move(utility::Position<float>(-10, 0));
+		m_pBall->Move(utility::Position<float>(-10, 0));
 	}
 	if ( GetGlobalInstance()->GetKeyManager()->IsPushing(utility::key::Right) )
 	{
-		m_pSprite->Move(utility::Position<float>(10, 0));
+		m_pBall->Move(utility::Position<float>(10, 0));
 	}
 	if ( GetGlobalInstance()->GetKeyManager()->IsPushing(utility::key::OK) )
 	{
-		m_pSprite->EnableRendering();
+		(*m_pBall) += utility::Size<float>(3, 3);
 	}
 	if ( GetGlobalInstance()->GetKeyManager()->IsPushing(utility::key::Cancel) )
 	{
-		m_pSprite->DisableRendering();
+		(*m_pBall) -= utility::Size<float>(3, 3);
 	}
 }
 

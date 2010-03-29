@@ -3,7 +3,7 @@
 
 #include "scene/SceneRendering.h"
 #include "entity/EntityTextPrinter.h"
-#include "entity/SceneEntitySprite.h"
+#include "Ball.h"
 
 
 class SceneSample
@@ -11,7 +11,7 @@ class SceneSample
 {
 private:
 	entity::EntityTextPrinter * m_pPrinter;
-	entity::SceneEntitySprite * m_pSprite;
+	Ball * m_pBall;
 
 public:
 	SceneSample(SceneID scene_id);
