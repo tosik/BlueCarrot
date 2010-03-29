@@ -243,50 +243,6 @@
 				</FileConfiguration>
 			</File>
 		</Filter>
-		<Filter
-			Name="BitboardCA"
-			>
-			<File
-				RelativePath="..\..\BitboardCA\include\bbcommon.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\BitboardCA\src\BitboardViewer.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\BitboardCA\include\BitboardViewer.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\BitboardCA\src\GenerationOuterTotalisticCA.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\BitboardCA\include\GenerationOuterTotalisticCA.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\BitboardCA\include\IViewableBitboard.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\BitboardCA\src\LargeBitboard.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\BitboardCA\include\LargeBitboard.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\BitboardCA\src\OuterTotalisticCA.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\BitboardCA\include\OuterTotalisticCA.h"
-				>
-			</File>
-		</Filter>
 	</Files>
 	<Globals>
 	</Globals>
