@@ -9,10 +9,10 @@ namespace entity
 {
 	class SceneEntitySprite
 		: public SceneEntity
+		, public utility::Rect<float>
 	{
 	private:
 		graphics::Texture * m_pTexture;
-		utility::Rect<float> m_Rect;
 		utility::UV m_UV;
 		utility::Color m_Color;
 		bool m_IsEnableAlphatest;
@@ -25,11 +25,6 @@ namespace entity
 		void Draw();
 		void CalculateAnimation();
 		void OnLoaded();
-
-		void SetRect(const utility::Rect<float> & rect)
-		{
-			m_Rect = rect;
-		}
 
 		void EnableAlphatest()
 		{

@@ -2,6 +2,7 @@
 #include "Debug.h"
 
 
+#ifdef WIN32
 void DebugOut( LPCWSTR pszFormat, ...)
 {
 	va_list	argp;
@@ -21,4 +22,5 @@ void DebugOut( LPCSTR pszFormat, ...)
 	va_end(argp);
 	OutputDebugStringA(pszBuf);
 }
+#endif
 

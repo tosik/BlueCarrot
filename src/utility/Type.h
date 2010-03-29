@@ -24,18 +24,109 @@ namespace utility
 
 		T width;
 		T height;
+
+		Size<T> operator+(const Size<T> & pos)
+		{
+			return Position<T>(width + pos.width, top + pos.height);
+		}
+
+		Size<T> operator-(const Size<T> & pos)
+		{
+			return Position<T>(width - pos.width, top - pos.height);
+		}
+
+		Size<T> & operator+=(const Size<T> & pos)
+		{
+			width += pos.width;
+			height += pos.height;
+			return (*this);
+		}
+
+		Size<T> & operator-=(const Size<T> & pos)
+		{
+			width -= pos.width;
+			height -= pos.height;
+			return (*this);
+		}
+
+		void SetSize(const utility::Size<float> & rect)
+		{
+			width = rect.width;
+			height = rect.height;
+		}
+	};
+
+	template<typename T>
+	struct Position
+	{
+		Position(T l, T t) : left(l), top(t) {}
+		Position() {}
+
+		T left;
+		T top;
+
+		Position<T> operator+(const Position<T> & pos)
+		{
+			return Position<T>(left + pos.left, top + pos.top);
+		}
+
+		Position<T> operator-(const Position<T> & pos)
+		{
+			return Position<T>(left - pos.left, top - pos.top);
+		}
+
+		Position<T> & operator+=(const Position<T> & pos)
+		{
+			left += pos.left;
+			top += pos.top;
+			return (*this);
+		}
+
+		Position<T> & operator-=(const Position<T> & pos)
+		{
+			left -= pos.left;
+			top -= pos.top;
+			return (*this);
+		}
+
+		void SetPosition(const utility::Position<float> & rect)
+		{
+			left = rect.left;
+			top = rect.top;
+		}
+
+		void Move(Position<T> move)
+		{
+			(*this) += move;
+		}
 	};
 
 	template<typename T>
 	struct Rect
+		: public Position<T>
+		, public Size<T>
 	{
-		Rect(T l, T t, T w, T h) : left(l), top(t), width(w), height(h) {}
+		Rect(T l, T t, T w, T h)
+			: Position(l, t), Size(w, h) {}
 		Rect() {}
 
-		T left;
-		T top;
-		T width;
-		T height;
+		void SetPosition(Position<T> position)
+		{
+			left = position.left;
+			top = position.top;
+		}
+
+		void SetSize(Size<T> size)
+		{
+			width = size.width;
+			height = size.height;
+		}
+
+		void SetRect(const utility::Rect<float> & rect)
+		{
+			SetPosition(rect);
+			SetSize(rect);
+		}
 	};
 
 	struct UV

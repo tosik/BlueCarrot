@@ -3,8 +3,8 @@
 
 // [TODO] #ifdef ‚ğg‚í‚È‚¢‚æ‚¤‚É•ÏX‚µ‚½‚¢
 
-#include <assert.h>
-#include <stdio.h>
+#include <cassert>
+#include <cstdio>
 
 #ifdef WIN32
 #include <windows.h>
