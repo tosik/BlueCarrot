@@ -31,3 +31,8 @@ SceneID GetStartupSceneID()
 {
 	return SCENE_ID_SAMPLE;
 }
+
+utility::Size<int> GetScreenSize()
+{
+	return utility::Size<int>(640, 480);
+}
