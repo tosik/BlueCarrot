@@ -95,8 +95,8 @@ namespace graphics
 		RECT rect;
 		rect.left = static_cast<LONG>(x);
 		rect.top = static_cast<LONG>(y);
-		rect.bottom = 0;
-		rect.right = 0;
+		rect.bottom = rect.left + 1;
+		rect.right = rect.left + 1;
 
 		HRESULT hr;
 		hr = m_pFont->DrawText(m_pSprite, text.c_str(), -1, &rect, DT_NOCLIP, color);

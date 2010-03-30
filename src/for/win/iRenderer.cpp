@@ -169,8 +169,8 @@ namespace graphics
 			ZeroMemory(&m_D3DPresentParam, sizeof(D3DPRESENT_PARAMETERS));
 
 			m_D3DPresentParam.BackBufferFormat			= disp_mode.Format;
-			m_D3DPresentParam.BackBufferWidth			= 512;
-			m_D3DPresentParam.BackBufferHeight			= static_cast<int>(512.f / GetAspect());
+			//m_D3DPresentParam.BackBufferWidth			= 512;
+			//m_D3DPresentParam.BackBufferHeight			= static_cast<int>(512.f / GetAspect());
 			m_D3DPresentParam.BackBufferCount			= 1;
 			m_D3DPresentParam.SwapEffect				= D3DSWAPEFFECT_DISCARD;
 			m_D3DPresentParam.EnableAutoDepthStencil	= TRUE;
@@ -195,7 +195,7 @@ namespace graphics
 			// 失敗したら
 			if ( FAILED(result) )
 			{
-				// ハードウェアデバイス
+				// ソフトウェアデバイス
 				result = m_pD3D->CreateDevice(
 					D3DADAPTER_DEFAULT,
 					D3DDEVTYPE_HAL,
@@ -208,7 +208,7 @@ namespace graphics
 				// 失敗したら
 				if ( FAILED(result) )
 				{
-					// ハードウェアデバイス
+					// ソフトウェアデバイス
 					result = m_pD3D->CreateDevice(
 						D3DADAPTER_DEFAULT,
 						D3DDEVTYPE_REF,
