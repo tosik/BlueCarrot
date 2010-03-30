@@ -60,7 +60,7 @@ namespace graphics
 		HRESULT	hr = m_pDevice->CreateVertexBuffer(
 			sizeof(D3DTLSprite) * 4,
 			0,
-			D3DFVF_2DVERTEX,
+			D3DFVF_SPRITE,
 			D3DPOOL_DEFAULT,
 			&m_pVB,
 			NULL
@@ -86,7 +86,7 @@ namespace graphics
 		hr = m_pDevice->SetStreamSource( 0, m_pVB, 0, sizeof(D3DTLSprite) );
 		ASSERT_HR( hr );
 
-		hr = m_pDevice->SetFVF( D3DFVF_2DVERTEX );
+		hr = m_pDevice->SetFVF( D3DFVF_SPRITE );
 		ASSERT_HR( hr );
 
 		hr = m_pDevice->DrawPrimitive( D3DPT_TRIANGLESTRIP, 0, 2 );

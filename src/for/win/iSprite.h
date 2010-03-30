@@ -27,7 +27,7 @@ namespace graphics
 
 
 	//2Dƒ|ƒŠƒSƒ“—p
-	const int D3DFVF_2DVERTEX = (D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_SPECULAR | D3DFVF_TEX1);
+	const int D3DFVF_SPRITE = (D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_SPECULAR | D3DFVF_TEX1);
 
 
 	class iSprite
