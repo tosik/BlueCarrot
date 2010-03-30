@@ -5,26 +5,29 @@
 #include <d3dx9.h>
 #include <string>
 
-namespace graphics
+namespace BlueCarrot
 {
-	class iTexture
+	namespace graphics
 	{
-	private:
-		IDirect3DTexture9 * m_pD3DTexture;
-
-	public:
-		virtual ~iTexture()
+		class iTexture
 		{
-			m_pD3DTexture->Release();
-		}
+		private:
+			IDirect3DTexture9 * m_pD3DTexture;
 
-		void iTexture::Create(std::wstring filename);
-		void iTexture::CreateFromBuffer(void * buffer, unsigned int size);
+		public:
+			virtual ~iTexture()
+			{
+				m_pD3DTexture->Release();
+			}
 
-		IDirect3DTexture9 * GetInner()
-		{
-			return m_pD3DTexture;
-		}
+			void iTexture::Create(std::wstring filename);
+			void iTexture::CreateFromBuffer(void * buffer, unsigned int size);
 
-	};
+			IDirect3DTexture9 * GetInner()
+			{
+				return m_pD3DTexture;
+			}
+
+		};
+	}
 }

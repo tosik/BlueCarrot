@@ -5,21 +5,24 @@
 #include <process.h>
 
 
-namespace job
+namespace BlueCarrot
 {
-	class iMutex
+	namespace job
 	{
-		friend class Mutex;
+		class iMutex
+		{
+			friend class Mutex;
 
-	private:
-		HANDLE m_Mutex;
+		private:
+			HANDLE m_Mutex;
 
-	public:
-		iMutex();
-		virtual ~iMutex();
+		public:
+			iMutex();
+			virtual ~iMutex();
 
-	private:
-		void Lock();
-		void Unlock();
-	};
+		private:
+			void Lock();
+			void Unlock();
+		};
+	}
 }

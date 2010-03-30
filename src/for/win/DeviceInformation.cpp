@@ -6,16 +6,18 @@
 #include "graphics/DeviceInformation.h"
 #include "for/win/DeviceInformation.h"
 
-
-namespace graphics
+namespace BlueCarrot
 {
-	DeviceInformation * CreateDeviceInformation()
+	namespace graphics
 	{
-		return new DeviceInformation;
-	}
+		DeviceInformation * CreateDeviceInformation()
+		{
+			return new DeviceInformation;
+		}
 
-	void DeleteDeviceInformation(DeviceInformation * pDeviceInformation)
-	{
-		delete pDeviceInformation;
+		void DeleteDeviceInformation(DeviceInformation * pDeviceInformation)
+		{
+			delete pDeviceInformation;
+		}
 	}
 }

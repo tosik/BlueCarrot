@@ -5,26 +5,29 @@
 #include "utility/Type.h"
 #include "graphics/DeviceInformation.h"
 
-namespace graphics
+namespace BlueCarrot
 {
-
-	class Light
-		: public utility::AutoImpl
+	namespace graphics
 	{
-	public:
-		Light();
-		virtual ~Light();
 
-		void CreateImpl();
-		void DestroyImpl();
+		class Light
+			: public utility::AutoImpl
+		{
+		public:
+			Light();
+			virtual ~Light();
 
-		void Initialize(DeviceInformation * pDeviceInformation);
-		void Update();
+			void CreateImpl();
+			void DestroyImpl();
 
-		void SetDir(utility::Vector3 &dir);
+			void Initialize(DeviceInformation * pDeviceInformation);
+			void Update();
 
-	private:
+			void SetDir(utility::Vector3 &dir);
 
-	};
+		private:
 
+		};
+
+	}
 }

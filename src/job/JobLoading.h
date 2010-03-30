@@ -6,38 +6,41 @@
 #include <string>
 
 
-namespace entity
+namespace BlueCarrot
 {
-	class EntityLoading;
-}
-
-namespace job
-{
-	// ファイルをロードするジョブ
-	// 読み込まれたデータを記憶するバッファは自動的に確保される
-	class JobLoading
-		: public Job
-		, public utility::AutoImpl
+	namespace entity
 	{
-	private:
-		std::string m_Filename;
-		void * m_pLoadedBuf;
-		unsigned int m_LoadedSize;
-		entity::EntityLoading * m_pEntityLoading;
+		class EntityLoading;
+	}
 
-	public:
-		// filename : 読み込むファイルの名前
-		// pEntityLoading : 読み込まれたデータを設定するエンティティ
-		JobLoading(std::string filename, entity::EntityLoading * pEntityLoading);
-		virtual ~JobLoading();
+	namespace job
+	{
+		// ファイルをロードするジョブ
+		// 読み込まれたデータを記憶するバッファは自動的に確保される
+		class JobLoading
+			: public Job
+			, public utility::AutoImpl
+		{
+		private:
+			std::string m_Filename;
+			void * m_pLoadedBuf;
+			unsigned int m_LoadedSize;
+			entity::EntityLoading * m_pEntityLoading;
 
-		void CreateImpl();
-		void DestroyImpl();
+		public:
+			// filename : 読み込むファイルの名前
+			// pEntityLoading : 読み込まれたデータを設定するエンティティ
+			JobLoading(std::string filename, entity::EntityLoading * pEntityLoading);
+			virtual ~JobLoading();
 
-	private:
-		void Open();
-		void Close();
-		void OnExec();
-		void OnEnd();
-	};
+			void CreateImpl();
+			void DestroyImpl();
+
+		private:
+			void Open();
+			void Close();
+			void OnExec();
+			void OnEnd();
+		};
+	}
 }

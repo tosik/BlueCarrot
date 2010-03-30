@@ -3,12 +3,15 @@
 
 
 
-namespace graphics
+namespace BlueCarrot
 {
-	// 描画に関するデバイスの情報
-	class DeviceInformation;
+	namespace graphics
+	{
+		// 描画に関するデバイスの情報
+		class DeviceInformation;
 
-	DeviceInformation * CreateDeviceInformation();
+		DeviceInformation * CreateDeviceInformation();
 
-	void DeleteDeviceInformation(DeviceInformation * pDeviceInformation);
+		void DeleteDeviceInformation(DeviceInformation * pDeviceInformation);
+	}
 }

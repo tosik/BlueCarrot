@@ -4,23 +4,26 @@
 #include "utility/AutoImpl.h"
 #include <string>
 
-namespace graphics
+namespace BlueCarrot
 {
-	class Texture
-		: public utility::AutoImpl
+	namespace graphics
 	{
-	public:
-		Texture(std::wstring filename);
-		Texture(void * buffer, unsigned int size);
-		virtual ~Texture();
+		class Texture
+			: public utility::AutoImpl
+		{
+		public:
+			Texture(std::wstring filename);
+			Texture(void * buffer, unsigned int size);
+			virtual ~Texture();
 
-		void CreateImpl();
-		void DestroyImpl();
+			void CreateImpl();
+			void DestroyImpl();
 
-		void Create(std::wstring filename);
-		void CreateFromBuffer(void * buffer, unsigned int size);
+			void Create(std::wstring filename);
+			void CreateFromBuffer(void * buffer, unsigned int size);
 
-		// TODO : 機種依存テクスチャのポインタを取得する方法は、これ以外にないのか？
-		void * GetInner();
-	};
+			// TODO : 機種依存テクスチャのポインタを取得する方法は、これ以外にないのか？
+			void * GetInner();
+		};
+	}
 }

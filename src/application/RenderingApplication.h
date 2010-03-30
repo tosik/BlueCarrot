@@ -4,42 +4,45 @@
 #include "Application.h"
 
 
-namespace application
+namespace BlueCarrot
 {
-
-	// 描画用アプリケーションクラス
-	class RenderingApplication
-		: virtual public Application
+	namespace application
 	{
-	private:
+
+		// 描画用アプリケーションクラス
+		class RenderingApplication
+			: virtual public Application
+		{
+		private:
 
 
-	protected:
+		protected:
 
 
-	public:
+		public:
 
-		RenderingApplication();
-		virtual ~RenderingApplication();
+			RenderingApplication();
+			virtual ~RenderingApplication();
 
-		// アプリケーションの開始・終了時に必ず呼ぶ
-		void Begin();
-		void End();
+			// アプリケーションの開始・終了時に必ず呼ぶ
+			void Begin();
+			void End();
 
-		// メインループ
-		virtual void OnExec(unsigned int elapsed_time);
+			// メインループ
+			virtual void OnExec(unsigned int elapsed_time);
 
-		// 描画
-		virtual void OnRender();
-
-
-	public:
+			// 描画
+			virtual void OnRender();
 
 
-	private:
+		public:
+
+
+		private:
 
 
 
-	};
+		};
 
+	}
 }

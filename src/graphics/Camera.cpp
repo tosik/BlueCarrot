@@ -2,18 +2,21 @@
 #include "graphics/Camera.h"
 #include "graphics/DeviceInformation.h"
 
-namespace graphics
+namespace BlueCarrot
 {
-
-
-	Camera::Camera()
+	namespace graphics
 	{
-		CreateImpl();
-	}
 
-	Camera::~Camera()
-	{
-		DestroyImpl();
-	}
 
+		Camera::Camera()
+		{
+			CreateImpl();
+		}
+
+		Camera::~Camera()
+		{
+			DestroyImpl();
+		}
+
+	}
 }

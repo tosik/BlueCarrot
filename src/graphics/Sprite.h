@@ -8,28 +8,31 @@
 #include "graphics/Texture.h"
 
 
-namespace graphics
+namespace BlueCarrot
 {
-
-	class Texture;
-	class Sprite
-		: public utility::AutoImpl
+	namespace graphics
 	{
-	public:
-		Sprite();
-		virtual ~Sprite();
 
-		void CreateImpl();
-		void DestroyImpl();
+		class Texture;
+		class Sprite
+			: public utility::AutoImpl
+		{
+		public:
+			Sprite();
+			virtual ~Sprite();
 
-		void Draw();
+			void CreateImpl();
+			void DestroyImpl();
 
-		void Initialize(DeviceInformation * pDeviceInformation);
-		void Finalize();
+			void Draw();
 
-		void Set(const utility::Rect<float> &rect, const utility::UV &uv, const utility::Color & color, bool is_enable_alphatest, bool is_enable_alphablending);
+			void Initialize(DeviceInformation * pDeviceInformation);
+			void Finalize();
 
-		void SetTexture(Texture * pTexture);
-	};
+			void Set(const utility::Rect<float> &rect, const utility::UV &uv, const utility::Color & color, bool is_enable_alphatest, bool is_enable_alphablending);
 
+			void SetTexture(Texture * pTexture);
+		};
+
+	}
 }

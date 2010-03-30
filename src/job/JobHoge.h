@@ -3,19 +3,22 @@
 
 #include "job/Job.h"
 
-namespace job
+namespace BlueCarrot
 {
-	class JobHoge
-		: public Job
+	namespace job
 	{
-	private:
+		class JobHoge
+			: public Job
+		{
+		private:
 
-	public:
-		JobHoge();
-		virtual ~JobHoge();
+		public:
+			JobHoge();
+			virtual ~JobHoge();
 
-	private:
-		void OnExec();
-		void OnEnd();
-	};
+		private:
+			void OnExec();
+			void OnEnd();
+		};
+	}
 }

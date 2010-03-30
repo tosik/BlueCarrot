@@ -3,31 +3,34 @@
 
 #include "entity/Entity.h"
 
-namespace entity
+namespace BlueCarrot
 {
-	class EntityAnimating
-		: public Entity
+	namespace entity
 	{
-		bool m_IsEnableAnimating;
+		class EntityAnimating
+			: public Entity
+		{
+			bool m_IsEnableAnimating;
 
-	public:
-		EntityAnimating()
-			: m_IsEnableAnimating(false)
-		{
-		}
-		void EnableAnimating()
-		{
-			m_IsEnableAnimating = true;
-		}
-		void DisableAnimating()
-		{
-			m_IsEnableAnimating = false;
-		}
-		bool IsEnableAnimating()
-		{
-			return m_IsEnableAnimating;
-		}
+		public:
+			EntityAnimating()
+				: m_IsEnableAnimating(false)
+			{
+			}
+			void EnableAnimating()
+			{
+				m_IsEnableAnimating = true;
+			}
+			void DisableAnimating()
+			{
+				m_IsEnableAnimating = false;
+			}
+			bool IsEnableAnimating()
+			{
+				return m_IsEnableAnimating;
+			}
 
-		virtual void CalculateAnimation() = 0;
-	};
+			virtual void CalculateAnimation() = 0;
+		};
+	}
 }

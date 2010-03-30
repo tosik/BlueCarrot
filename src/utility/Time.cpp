@@ -1,8 +1,9 @@
 
 #include "utility/Time.h"
 
-
-namespace utility
+namespace BlueCarrot
 {
+	namespace utility
+	{
+	}
 }
-

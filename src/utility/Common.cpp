@@ -3,20 +3,23 @@
 #include <locale.h>
 #include <stdlib.h>
 
-namespace utility
+namespace BlueCarrot
 {
-
-	void WC2MB(char * mb, const wchar_t * wc)
+	namespace utility
 	{
-		int index = 0;
-		int i = 0;
-		int len = wctomb(&mb[i], wc[i]);
-		while (len > 0)
-		{
-			index += len;
-			i++;
-			len = wctomb(&mb[i], wc[index]);
-		}
-	}
 
+		void WC2MB(char * mb, const wchar_t * wc)
+		{
+			int index = 0;
+			int i = 0;
+			int len = wctomb(&mb[i], wc[i]);
+			while (len > 0)
+			{
+				index += len;
+				i++;
+				len = wctomb(&mb[i], wc[index]);
+			}
+		}
+
+	}
 }

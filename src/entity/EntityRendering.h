@@ -3,30 +3,33 @@
 
 #include "entity/Entity.h"
 
-namespace entity
+namespace BlueCarrot
 {
-	class EntityRendering
-		: public Entity
+	namespace entity
 	{
-		bool m_IsEnableRendering;
+		class EntityRendering
+			: public Entity
+		{
+			bool m_IsEnableRendering;
 
-	public:
-		EntityRendering()
-			: m_IsEnableRendering(false)
-		{
-		}
-		void EnableRendering()
-		{
-			m_IsEnableRendering = true;
-		}
-		void DisableRendering()
-		{
-			m_IsEnableRendering = false;
-		}
-		bool IsEnableRendering()
-		{
-			return m_IsEnableRendering;
-		}
-		virtual void Draw() = 0;
-	};
+		public:
+			EntityRendering()
+				: m_IsEnableRendering(false)
+			{
+			}
+			void EnableRendering()
+			{
+				m_IsEnableRendering = true;
+			}
+			void DisableRendering()
+			{
+				m_IsEnableRendering = false;
+			}
+			bool IsEnableRendering()
+			{
+				return m_IsEnableRendering;
+			}
+			virtual void Draw() = 0;
+		};
+	}
 }

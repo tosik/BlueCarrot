@@ -1,44 +1,47 @@
 
 #include "winFunctions.h"
+#include "utility/Type.h"
 
 #include <stdlib.h>
 #include <crtdbg.h>
 #define _CRTDBG_MAP_ALLOC
 
-
-namespace utility
+namespace BlueCarrot
 {
-	bool InitializeSystem()
+	namespace utility
 	{
-		static bool is_initialized = false;
-
-		if ( ! is_initialized )
+		bool InitializeSystem()
 		{
-			_CrtSetDbgFlag( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
+			static bool is_initialized = false;
 
-			is_initialized = true;
+			if ( ! is_initialized )
+			{
+				_CrtSetDbgFlag( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
+
+				is_initialized = true;
+			}
+
+			return true;
 		}
 
-		return true;
-	}
+		bool FinalizeSystem()
+		{
+			return true;
+		}
 
-	bool FinalizeSystem()
-	{
-		return true;
-	}
+		Vector3 ToVector3(const D3DXVECTOR3 & vec)
+		{
+			return Vector3(vec.x, vec.y, vec.z);
+		}
 
-	Vector3 ToVector3(const D3DXVECTOR3 & vec)
-	{
-		return Vector3(vec.x, vec.y, vec.z);
-	}
+		D3DXVECTOR3 ToDXVector3(const Vector3 & vec)
+		{
+			return D3DXVECTOR3(vec.x, vec.y, vec.z);
+		}
 
-	D3DXVECTOR3 ToDXVector3(const Vector3 & vec)
-	{
-		return D3DXVECTOR3(vec.x, vec.y, vec.z);
-	}
-
-	D3DCOLOR ToDXColor(const utility::Color & color)
-	{
-		return D3DCOLOR_ARGB(color.a, color.r, color.g, color.b);
+		D3DCOLOR ToDXColor(const utility::Color & color)
+		{
+			return D3DCOLOR_ARGB(color.a, color.r, color.g, color.b);
+		}
 	}
 }

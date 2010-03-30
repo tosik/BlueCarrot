@@ -3,8 +3,9 @@
 
 #include "entity/SceneEntitySprite.h"
 
+
 class Ball
-	: public entity::SceneEntitySprite
+	: public BlueCarrot::entity::SceneEntitySprite
 {
 public:
 	Ball();

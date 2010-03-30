@@ -2,14 +2,17 @@
 #include "entity/SceneEntity.h"
 #include "basic/GlobalInstance.h"
 
-namespace entity
+namespace BlueCarrot
 {
-	SceneEntity::SceneEntity(std::string filename)
-		: EntityLoading(filename)
+	namespace entity
 	{
-	}
+		SceneEntity::SceneEntity(std::string filename)
+			: EntityLoading(filename)
+		{
+		}
 
-	SceneEntity::~SceneEntity()
-	{
+		SceneEntity::~SceneEntity()
+		{
+		}
 	}
 }

@@ -2,4 +2,7 @@
 #pragma once
 
 
-typedef int SceneID;
+namespace BlueCarrot
+{
+	typedef int SceneID;
+}

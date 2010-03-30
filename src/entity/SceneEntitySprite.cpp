@@ -5,41 +5,44 @@
 #include "graphics/Texture.h"
 #include "graphics/Sprite.h"
 
-namespace entity
+namespace BlueCarrot
 {
-	SceneEntitySprite::SceneEntitySprite(std::string filename)
-		: SceneEntity(filename)
-		, m_UV(0.f, 0.f, 1.f, 1.f)
-		, m_Color(255, 255, 255, 255)
-		, Rect(0.f, 0.f, 1.f, 1.f)
-		, m_pTexture(NULL)
+	namespace entity
 	{
-		DisableRendering();
-		DisableAnimating();
-		DisableAlphatest();
-		DisableAlphablending();
-	}
+		SceneEntitySprite::SceneEntitySprite(std::string filename)
+			: SceneEntity(filename)
+			, m_UV(0.f, 0.f, 1.f, 1.f)
+			, m_Color(255, 255, 255, 255)
+			, Rect(0.f, 0.f, 1.f, 1.f)
+			, m_pTexture(NULL)
+		{
+			DisableRendering();
+			DisableAnimating();
+			DisableAlphatest();
+			DisableAlphablending();
+		}
 
-	SceneEntitySprite::~SceneEntitySprite()
-	{
-		if ( m_pTexture )
-			delete m_pTexture;
-	}
+		SceneEntitySprite::~SceneEntitySprite()
+		{
+			if ( m_pTexture )
+				delete m_pTexture;
+		}
 
-	void SceneEntitySprite::OnLoaded()
-	{
-		m_pTexture = new graphics::Texture(GetBuffer(), GetSize());
+		void SceneEntitySprite::OnLoaded()
+		{
+			m_pTexture = new graphics::Texture(GetBuffer(), GetSize());
 
-		EnableRendering();
-		EnableAnimating();
-	}
+			EnableRendering();
+			EnableAnimating();
+		}
 
-	void SceneEntitySprite::Draw()
-	{
-		GetGlobalInstance()->GetRenderer()->DrawRect((*this), m_UV, m_Color, m_pTexture, m_IsEnableAlphatest, m_IsEnableAlphablending);
-	}
+		void SceneEntitySprite::Draw()
+		{
+			GetGlobalInstance()->GetRenderer()->DrawRect((*this), m_UV, m_Color, m_pTexture, m_IsEnableAlphatest, m_IsEnableAlphablending);
+		}
 
-	void SceneEntitySprite::CalculateAnimation()
-	{
+		void SceneEntitySprite::CalculateAnimation()
+		{
+		}
 	}
 }

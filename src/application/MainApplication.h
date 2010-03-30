@@ -8,40 +8,43 @@
 #include "utility/Common.h"
 
 
-namespace application
+namespace BlueCarrot
 {
-	// アプリケーション用クラス
-	class MainApplication
-		: public JobApplication
-		, public RenderingApplication
-		, public NetworkApplication
+	namespace application
 	{
-	private:
+		// アプリケーション用クラス
+		class MainApplication
+			: public JobApplication
+			, public RenderingApplication
+			, public NetworkApplication
+		{
+		private:
 
 
-	protected:
+		protected:
 
 
-	public:
+		public:
 
-		MainApplication();
-		virtual ~MainApplication();
+			MainApplication();
+			virtual ~MainApplication();
 
-		// アプリケーションの開始・終了時に必ず呼ぶ
-		void Begin();
-		void End();
+			// アプリケーションの開始・終了時に必ず呼ぶ
+			void Begin();
+			void End();
 
-		// メインループ
-		virtual void OnExec(unsigned int elapsed_time);
-
-
-	public:
+			// メインループ
+			virtual void OnExec(unsigned int elapsed_time);
 
 
-	private:
+		public:
+
+
+		private:
 
 
 
-	};
+		};
 
+	}
 }

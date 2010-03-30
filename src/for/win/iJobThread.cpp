@@ -6,32 +6,35 @@
 #include <cassert>
 #include <windows.h>
 
-namespace job
+namespace BlueCarrot
 {
-	HANDLE g_JobThread;
-	static bool g_IsCreatedJobThread = true;
-
-	void StartJobThread()
+	namespace job
 	{
-		// この関数は多重起動できない
-		assert(g_IsCreatedJobThread);
+		HANDLE g_JobThread;
+		static bool g_IsCreatedJobThread = true;
 
-		// スレッドを作る(スレッド終了時に自動的にデタッチされる)
-		g_JobThread = CreateThread(
-			NULL, // ハンドルを継承させない
-			0, // スタックは既定サイズ
-			(LPTHREAD_START_ROUTINE)JobThread, // スレッド関数
-			NULL, // 引数は指定しない
-			0, // 実行可能状態で起動する
-			NULL // 識別子は取得しない
-			);
+		void StartJobThread()
+		{
+			// この関数は多重起動できない
+			assert(g_IsCreatedJobThread);
 
-		g_IsCreatedJobThread = true;
+			// スレッドを作る(スレッド終了時に自動的にデタッチされる)
+			g_JobThread = CreateThread(
+				NULL, // ハンドルを継承させない
+				0, // スタックは既定サイズ
+				(LPTHREAD_START_ROUTINE)JobThread, // スレッド関数
+				NULL, // 引数は指定しない
+				0, // 実行可能状態で起動する
+				NULL // 識別子は取得しない
+				);
+
+			g_IsCreatedJobThread = true;
+		}
+
+		void EndJobThread()
+		{
+			SetDisableJobThread();
+		}
+
 	}
-
-	void EndJobThread()
-	{
-		SetDisableJobThread();
-	}
-
 }

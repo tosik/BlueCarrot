@@ -3,18 +3,21 @@
 
 #include "utility/AutoImpl.h"
 
-namespace job
+namespace BlueCarrot
 {
-	class Mutex
-		: public utility::AutoImpl
+	namespace job
 	{
-	public:
-		Mutex();
-		virtual ~Mutex();
-		void CreateImpl();
-		void DestroyImpl();
+		class Mutex
+			: public utility::AutoImpl
+		{
+		public:
+			Mutex();
+			virtual ~Mutex();
+			void CreateImpl();
+			void DestroyImpl();
 
-		void Lock();
-		void Unlock();
-	};
+			void Lock();
+			void Unlock();
+		};
+	}
 }

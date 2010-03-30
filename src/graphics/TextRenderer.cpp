@@ -4,16 +4,18 @@
 #include "graphics/TextRenderer.h"
 #include "utility/MemoryAllocator.h"
 
-
-namespace graphics
+namespace BlueCarrot
 {
-	TextRenderer::TextRenderer()
+	namespace graphics
 	{
-		CreateImpl();
-	}
+		TextRenderer::TextRenderer()
+		{
+			CreateImpl();
+		}
 
-	TextRenderer::~TextRenderer()
-	{
-		DestroyImpl();
+		TextRenderer::~TextRenderer()
+		{
+			DestroyImpl();
+		}
 	}
 }

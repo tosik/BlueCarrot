@@ -5,34 +5,37 @@
 #include "job/Job.h"
 #include <vector>
 
-namespace job
+namespace BlueCarrot
 {
-	typedef std::vector<Job*> Jobs;
-
-	class JobManager
+	namespace job
 	{
-	private:
-		// 現在処理中のジョブ
-		Job * m_pRunningJob;
+		typedef std::vector<Job*> Jobs;
 
-		Jobs m_Jobs;
-		Jobs m_EndedJobs;
+		class JobManager
+		{
+		private:
+			// 現在処理中のジョブ
+			Job * m_pRunningJob;
 
-		Mutex m_MutexJobs;
-		Mutex m_MutexEndedJobs;
+			Jobs m_Jobs;
+			Jobs m_EndedJobs;
 
-	public:
-		JobManager();
-		virtual ~JobManager();
+			Mutex m_MutexJobs;
+			Mutex m_MutexEndedJobs;
 
-		void RegisterJob(Job * pJob);
+		public:
+			JobManager();
+			virtual ~JobManager();
 
-		void ExecuteJobs();
+			void RegisterJob(Job * pJob);
 
-		void DeleteEndedJobs();
+			void ExecuteJobs();
 
-	private:
-		void PushJob(Job * pJob);
-		Job * PopJob();
-	};
+			void DeleteEndedJobs();
+
+		private:
+			void PushJob(Job * pJob);
+			Job * PopJob();
+		};
+	}
 }

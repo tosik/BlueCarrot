@@ -4,39 +4,42 @@
 #include "Application.h"
 
 
-namespace application
+namespace BlueCarrot
 {
-
-	// ジョブ管理を行うようにするアプリケーションクラス
-	class JobApplication
-		: virtual public Application
+	namespace application
 	{
-	private:
+
+		// ジョブ管理を行うようにするアプリケーションクラス
+		class JobApplication
+			: virtual public Application
+		{
+		private:
 
 
-	protected:
+		protected:
 
 
-	public:
+		public:
 
-		JobApplication();
-		virtual ~JobApplication();
+			JobApplication();
+			virtual ~JobApplication();
 
-		// アプリケーションの開始・終了時に必ず呼ぶ
-		void Begin();
-		void End();
+			// アプリケーションの開始・終了時に必ず呼ぶ
+			void Begin();
+			void End();
 
-		// メインループ
-		virtual void OnExec(unsigned int elapsed_time);
-
-
-	public:
+			// メインループ
+			virtual void OnExec(unsigned int elapsed_time);
 
 
-	private:
+		public:
+
+
+		private:
 
 
 
-	};
+		};
 
+	}
 }

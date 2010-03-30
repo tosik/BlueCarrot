@@ -2,72 +2,75 @@
 #pragma once
 
 
-namespace utility
+namespace BlueCarrot
 {
-	class MemoryAllocator
+	namespace utility
 	{
-		int m_Count;
-
-	public:
-		MemoryAllocator()
-			: m_Count(0)
+		class MemoryAllocator
 		{
-		}
+			int m_Count;
 
-		virtual void * Allocate(unsigned int size) = 0;
-		virtual void Free(void * block) = 0;
+		public:
+			MemoryAllocator()
+				: m_Count(0)
+			{
+			}
 
-		// counter functions
-	protected:
-		void CountUp()
+			virtual void * Allocate(unsigned int size) = 0;
+			virtual void Free(void * block) = 0;
+
+			// counter functions
+		protected:
+			void CountUp()
+			{
+				m_Count ++;
+			}
+			void CountDown()
+			{
+				m_Count --;
+			}
+		public:
+			int GetCount()
+			{
+				return m_Count;
+			}
+		};
+
+		/* [TODO]
+		* 各用途別メモリアロケータは、モデル用、テクスチャ用、UI用、32バイト以下用などと、
+		* それぞれのシーンに合わせて用意するべき。
+		*/
+
+		class MemoryAllocatorMain
+			: public MemoryAllocator
 		{
-			m_Count ++;
-		}
-		void CountDown()
+		public:
+			void * Allocate(unsigned int size);
+			void Free(void * block);
+		};
+
+		class MemoryAllocatorSub
+			: public MemoryAllocator
 		{
-			m_Count --;
-		}
-	public:
-		int GetCount()
+		public:
+			void * Allocate(unsigned int size);
+			void Free(void * block);
+		};
+
+		class MemoryAllocatorForOperationNewDelete
+			: public MemoryAllocator
 		{
-			return m_Count;
-		}
-	};
+		public:
+			void * Allocate(unsigned int size);
+			void Free(void * block);
+		};
 
-	/* [TODO]
-	 * 各用途別メモリアロケータは、モデル用、テクスチャ用、UI用、32バイト以下用などと、
-	 * それぞれのシーンに合わせて用意するべき。
-	 */
-
-	class MemoryAllocatorMain
-		: public MemoryAllocator
-	{
-	public:
-		void * Allocate(unsigned int size);
-		void Free(void * block);
-	};
-
-	class MemoryAllocatorSub
-		: public MemoryAllocator
-	{
-	public:
-		void * Allocate(unsigned int size);
-		void Free(void * block);
-	};
-
-	class MemoryAllocatorForOperationNewDelete
-		: public MemoryAllocator
-	{
-	public:
-		void * Allocate(unsigned int size);
-		void Free(void * block);
-	};
-
-	class MemoryAllocatorForDebug
-		: public MemoryAllocator
-	{
-	public:
-		void * Allocate(unsigned int size);
-		void Free(void * block);
-	};
+		class MemoryAllocatorForDebug
+			: public MemoryAllocator
+		{
+		public:
+			void * Allocate(unsigned int size);
+			void Free(void * block);
+		};
+	}
 }

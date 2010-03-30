@@ -2,29 +2,31 @@
 #include "NetworkApplication.h"
 #include "basic/GlobalInstance.h"
 
-
-namespace application
+namespace BlueCarrot
 {
-
-	NetworkApplication::NetworkApplication()
+	namespace application
 	{
-	}
 
-	NetworkApplication::~NetworkApplication()
-	{
-	}
+		NetworkApplication::NetworkApplication()
+		{
+		}
 
-	void NetworkApplication::Begin()
-	{
-	}
+		NetworkApplication::~NetworkApplication()
+		{
+		}
 
-	void NetworkApplication::End()
-	{
-	}
+		void NetworkApplication::Begin()
+		{
+		}
 
-	void NetworkApplication::OnExec(unsigned int elapsed_time)
-	{
-		GetGlobalInstance()->GetNetwork()->Update();
-	}
+		void NetworkApplication::End()
+		{
+		}
 
+		void NetworkApplication::OnExec(unsigned int elapsed_time)
+		{
+			GetGlobalInstance()->GetNetwork()->Update();
+		}
+
+	}
 }

@@ -5,33 +5,36 @@
 #include "debug/Debug.h"
 #include "utility/Time.h"
 
-namespace job
+namespace BlueCarrot
 {
-	JobHoge::JobHoge()
+	namespace job
 	{
-	}
-
-	JobHoge::~JobHoge()
-	{
-	}
-
-	void JobHoge::OnExec()
-	{
-		DebugOut("JobHoge::OnExec\n");
-
-		unsigned int count = 100;
-		while ( count -- )
+		JobHoge::JobHoge()
 		{
-			DebugOut("JobHoge::Loop\n");
-			Sleep(100);
 		}
 
-		SetEnd();
-	}
+		JobHoge::~JobHoge()
+		{
+		}
 
-	void JobHoge::OnEnd()
-	{
-		DebugOut("JobHoge::OnEnd");
-	}
+		void JobHoge::OnExec()
+		{
+			DebugOut("JobHoge::OnExec\n");
 
+			unsigned int count = 100;
+			while ( count -- )
+			{
+				DebugOut("JobHoge::Loop\n");
+				Sleep(100);
+			}
+
+			SetEnd();
+		}
+
+		void JobHoge::OnEnd()
+		{
+			DebugOut("JobHoge::OnEnd");
+		}
+
+	}
 }

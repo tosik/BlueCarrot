@@ -1,19 +1,21 @@
 
 #include "graphics/Light.h"
 
-
-namespace graphics
+namespace BlueCarrot
 {
-
-	Light::Light()
+	namespace graphics
 	{
-		CreateImpl();
+
+		Light::Light()
+		{
+			CreateImpl();
+		}
+
+		Light::~Light()
+		{
+			DestroyImpl();
+		}
+
+
 	}
-
-	Light::~Light()
-	{
-		DestroyImpl();
-	}
-
-
 }

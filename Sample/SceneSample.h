@@ -6,14 +6,14 @@
 #include "Ball.h"
 
 class SceneSample
-	: public SceneRendering
+	: public BlueCarrot::SceneRendering
 {
 private:
-	entity::EntityTextPrinter * m_pPrinter;
+	BlueCarrot::entity::EntityTextPrinter * m_pPrinter;
 	Ball * m_pBall;
 
 public:
-	SceneSample(SceneID scene_id);
+	SceneSample(BlueCarrot::SceneID scene_id);
 
 	void Initialize();
 	void Finalize();

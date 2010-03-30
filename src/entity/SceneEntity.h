@@ -5,15 +5,18 @@
 #include "entity/EntityRendering.h"
 #include "entity/EntityAnimating.h"
 
-namespace entity
+namespace BlueCarrot
 {
-	class SceneEntity
-		: public EntityLoading
-		, public EntityRendering
-		, public EntityAnimating
+	namespace entity
 	{
-	public:
-		SceneEntity(std::string filename);
-		virtual ~SceneEntity();
-	};
+		class SceneEntity
+			: public EntityLoading
+			, public EntityRendering
+			, public EntityAnimating
+		{
+		public:
+			SceneEntity(std::string filename);
+			virtual ~SceneEntity();
+		};
+	}
 }

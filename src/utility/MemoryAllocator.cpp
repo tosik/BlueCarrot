@@ -1,7 +1,9 @@
 
 #include "utility/MemoryAllocator.h"
 
-
-namespace utility
+namespace BlueCarrot
 {
+	namespace utility
+	{
+	}
 }

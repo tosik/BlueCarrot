@@ -10,10 +10,14 @@
 #define ASSERT(X) assert(X)
 #define ASSERT_HR(hr) ASSERT(SUCCEEDED(hr))
 
-extern HINSTANCE g_hMainInstance;
-extern HINSTANCE g_hPrevInstance;
-extern LPSTR g_lpszArgs;
-extern int g_nWinMode;
+namespace BlueCarrot
+{
+	extern HINSTANCE g_hMainInstance;
+	extern HINSTANCE g_hPrevInstance;
+	extern LPSTR g_lpszArgs;
+	extern int g_nWinMode;
+
+	int WINAPI WindowsEntryPoint(HINSTANCE hThisInst, HINSTANCE hPrevInst, LPSTR lpszArgs, int nWinMode);
+}
 
 LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
-int WINAPI WindowsEntryPoint(HINSTANCE hThisInst, HINSTANCE hPrevInst, LPSTR lpszArgs, int nWinMode);

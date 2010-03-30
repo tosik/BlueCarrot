@@ -4,24 +4,27 @@
 #include "job/Job.h"
 #include "basic/GlobalInstance.h"
 
-namespace job
+namespace BlueCarrot
 {
-	volatile bool g_IsEnable;
-
-	void SetDisableJobThread()
+	namespace job
 	{
-		g_IsEnable = false;
-	}
+		volatile bool g_IsEnable;
 
-	void * JobThread(void *)
-	{
-		g_IsEnable = true;
-		while ( g_IsEnable )
+		void SetDisableJobThread()
 		{
-			JobManager * pJobManager = GetGlobalInstance()->GetJobManager();
-			pJobManager->ExecuteJobs();
+			g_IsEnable = false;
 		}
 
-		return NULL;
+		void * JobThread(void *)
+		{
+			g_IsEnable = true;
+			while ( g_IsEnable )
+			{
+				JobManager * pJobManager = GetGlobalInstance()->GetJobManager();
+				pJobManager->ExecuteJobs();
+			}
+
+			return NULL;
+		}
 	}
 }

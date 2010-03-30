@@ -1,7 +1,10 @@
 
 #pragma once
 
-namespace network
+namespace BlueCarrot
 {
-	const int port = 36985;
+	namespace network
+	{
+		const int port = 36985;
+	}
 }

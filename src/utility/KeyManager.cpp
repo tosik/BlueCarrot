@@ -1,15 +1,18 @@
 
 #include "utility/KeyManager.h"
 
-namespace utility
+namespace BlueCarrot
 {
-	KeyManager::KeyManager()
+	namespace utility
 	{
-		CreateImpl();
-	}
+		KeyManager::KeyManager()
+		{
+			CreateImpl();
+		}
 
-	KeyManager::~KeyManager()
-	{
-		DestroyImpl();
+		KeyManager::~KeyManager()
+		{
+			DestroyImpl();
+		}
 	}
 }

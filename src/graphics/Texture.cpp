@@ -1,26 +1,28 @@
 
 #include "graphics/Texture.h"
 
-
-namespace graphics
+namespace BlueCarrot
 {
-
-	Texture::Texture(std::wstring filename)
+	namespace graphics
 	{
-		CreateImpl();
-		Create(filename);
+
+		Texture::Texture(std::wstring filename)
+		{
+			CreateImpl();
+			Create(filename);
+		}
+
+		Texture::Texture(void * buffer, unsigned int size)
+		{
+			CreateImpl();
+			CreateFromBuffer(buffer, size);
+		}
+
+		Texture::~Texture()
+		{
+			DestroyImpl();
+		}
+
+
 	}
-
-	Texture::Texture(void * buffer, unsigned int size)
-	{
-		CreateImpl();
-		CreateFromBuffer(buffer, size);
-	}
-
-	Texture::~Texture()
-	{
-		DestroyImpl();
-	}
-
-
 }

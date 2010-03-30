@@ -4,33 +4,35 @@
 #include "basic/GlobalInstance.h"
 #include "job/JobManager.h"
 
-
-namespace application
+namespace BlueCarrot
 {
-
-	JobApplication::JobApplication()
+	namespace application
 	{
+
+		JobApplication::JobApplication()
+		{
+		}
+
+		JobApplication::~JobApplication()
+		{
+		}
+
+		void JobApplication::Begin()
+		{
+			job::StartJobThread();
+		}
+
+		void JobApplication::End()
+		{
+			job::EndJobThread();
+		}
+
+		void JobApplication::OnExec(unsigned int /*elapsed_time*/)
+		{
+			job::JobManager * pJobManager = GetGlobalInstance()->GetJobManager();
+
+			pJobManager->DeleteEndedJobs();
+		}
+
 	}
-
-	JobApplication::~JobApplication()
-	{
-	}
-
-	void JobApplication::Begin()
-	{
-		job::StartJobThread();
-	}
-
-	void JobApplication::End()
-	{
-		job::EndJobThread();
-	}
-
-	void JobApplication::OnExec(unsigned int /*elapsed_time*/)
-	{
-		job::JobManager * pJobManager = GetGlobalInstance()->GetJobManager();
-
-		pJobManager->DeleteEndedJobs();
-	}
-
 }

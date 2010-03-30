@@ -7,33 +7,36 @@
 #include "utility/Common.h"
 #include <iostream>
 
-namespace job
+namespace BlueCarrot
 {
-	JobLoading::JobLoading(std::string filename, entity::EntityLoading * pEntityLoading)
+	namespace job
 	{
-		CreateImpl();
+		JobLoading::JobLoading(std::string filename, entity::EntityLoading * pEntityLoading)
+		{
+			CreateImpl();
 
-		m_Filename = filename;
-		m_pLoadedBuf = NULL;
-		m_LoadedSize = 0;
-		m_pEntityLoading = pEntityLoading;
+			m_Filename = filename;
+			m_pLoadedBuf = NULL;
+			m_LoadedSize = 0;
+			m_pEntityLoading = pEntityLoading;
 
-		Open();
-	}
+			Open();
+		}
 
-	JobLoading::~JobLoading()
-	{
-		Close();
+		JobLoading::~JobLoading()
+		{
+			Close();
 
-		DestroyImpl();
-	}
+			DestroyImpl();
+		}
 
 
-	void JobLoading::OnEnd()
-	{
-		m_pEntityLoading->SetLoadedBuffer(m_pLoadedBuf, m_LoadedSize);
-		m_pEntityLoading->OnLoaded();
+		void JobLoading::OnEnd()
+		{
+			m_pEntityLoading->SetLoadedBuffer(m_pLoadedBuf, m_LoadedSize);
+			m_pEntityLoading->OnLoaded();
 
-		DebugOut("JobLoading::OnEnd\n");
+			DebugOut("JobLoading::OnEnd\n");
+		}
 	}
 }

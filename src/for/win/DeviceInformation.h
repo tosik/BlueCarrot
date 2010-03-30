@@ -9,12 +9,15 @@
 #include "graphics/DeviceInformation.h"
 
 
-namespace graphics
+namespace BlueCarrot
 {
-	// 描画に関するデバイスの情報
-	class DeviceInformation
+	namespace graphics
 	{
-	public:
-		IDirect3DDevice9 * pDevice;
-	};
+		// 描画に関するデバイスの情報
+		class DeviceInformation
+		{
+		public:
+			IDirect3DDevice9 * pDevice;
+		};
+	}
 }

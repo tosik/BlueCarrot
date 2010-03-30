@@ -2,17 +2,20 @@
 #include "kernel/Kernel.h"
 #include "winFunctions.h"
 
-namespace kernel
+namespace BlueCarrot
 {
-	bool InitializeSystem()
+	namespace kernel
 	{
-		return utility::InitializeSystem();
+		bool InitializeSystem()
+		{
+			return utility::InitializeSystem();
+		}
+
+		bool FinalizeSystem()
+		{
+			return utility::FinalizeSystem();
+		}
+
+
 	}
-
-	bool FinalizeSystem()
-	{
-		return utility::FinalizeSystem();
-	}
-
-
 }

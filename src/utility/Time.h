@@ -2,11 +2,13 @@
 #pragma once
 
 
-namespace utility
+namespace BlueCarrot
 {
-	// Œ»İ‚ğ milliseconds ‚Åæ“¾‚·‚é
-	unsigned int GetNowTime();
+	namespace utility
+	{
+		// Œ»İ‚ğ milliseconds ‚Åæ“¾‚·‚é
+		unsigned int GetNowTime();
 
-	void Sleep(unsigned int time);
+		void Sleep(unsigned int time);
+	}
 }
-

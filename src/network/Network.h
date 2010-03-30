@@ -6,29 +6,31 @@
 #include <string>
 
 
-namespace network
+namespace BlueCarrot
 {
-
-	// ネットワーク
-	class Network
+	namespace network
 	{
-	private:
+
+		// ネットワーク
+		class Network
+		{
+		private:
 
 
-	public:
-		Network();
-		virtual ~Network();
+		public:
+			Network();
+			virtual ~Network();
 
-		// ネットワーク接続に必要なインスタンスを生成する
-		void Create();
+			// ネットワーク接続に必要なインスタンスを生成する
+			void Create();
 
-		// ネットワークに接続する
-		void Connect(std::string address, unsigned short port);
+			// ネットワークに接続する
+			void Connect(std::string address, unsigned short port);
 
-		// ポーリング
-		void Update();
+			// ポーリング
+			void Update();
 
-	};
+		};
 
+	}
 }
-

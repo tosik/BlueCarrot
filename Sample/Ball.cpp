@@ -1,6 +1,8 @@
 
 #include "Ball.h"
 
+using namespace BlueCarrot;
+
 Ball::Ball()
 	: SceneEntitySprite("resource/master/reversi/board.tga")
 {

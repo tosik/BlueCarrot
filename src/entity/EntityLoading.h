@@ -4,50 +4,53 @@
 #include "Entity.h"
 #include <string>
 
-namespace job
+namespace BlueCarrot
 {
-	class JobLoading;
-}
-
-namespace entity
-{
-	class EntityLoading
-		: public Entity
+	namespace job
 	{
-		friend class job::JobLoading;
+		class JobLoading;
+	}
 
-	private:
-		void * m_pLoadedBuffer;
-		unsigned int m_LoadedSize;
-		std::string m_Filename;
-		job::JobLoading * m_pJobLoading;
-
-	public:
-		EntityLoading(std::string filename);
-		virtual ~EntityLoading();
-
-		// 自分自身の必要なデータを1つロード開始する
-		void Load();
-
-		// 読み込みが完了した時に呼び出される
-		virtual void OnLoaded() = 0;
-
-	private:
-		// 読み込みが完了したバッファを設定する
-		void SetLoadedBuffer(void * buf, unsigned int size)
+	namespace entity
+	{
+		class EntityLoading
+			: public Entity
 		{
-			m_pLoadedBuffer = buf;
-			m_LoadedSize = size;
-		}
+			friend class job::JobLoading;
 
-	protected:
-		void * GetBuffer()
-		{
-			return m_pLoadedBuffer;
-		}
-		unsigned int GetSize()
-		{
-			return m_LoadedSize;
-		}
-	};
+		private:
+			void * m_pLoadedBuffer;
+			unsigned int m_LoadedSize;
+			std::string m_Filename;
+			job::JobLoading * m_pJobLoading;
+
+		public:
+			EntityLoading(std::string filename);
+			virtual ~EntityLoading();
+
+			// 自分自身の必要なデータを1つロード開始する
+			void Load();
+
+			// 読み込みが完了した時に呼び出される
+			virtual void OnLoaded() = 0;
+
+		private:
+			// 読み込みが完了したバッファを設定する
+			void SetLoadedBuffer(void * buf, unsigned int size)
+			{
+				m_pLoadedBuffer = buf;
+				m_LoadedSize = size;
+			}
+
+		protected:
+			void * GetBuffer()
+			{
+				return m_pLoadedBuffer;
+			}
+			unsigned int GetSize()
+			{
+				return m_LoadedSize;
+			}
+		};
+	}
 }

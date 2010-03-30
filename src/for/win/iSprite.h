@@ -5,55 +5,58 @@
 #include <d3dx9.h>
 
 
-namespace graphics
+namespace BlueCarrot
 {
-
-	//2D頂点フォーマット
-	typedef struct
+	namespace graphics
 	{
-		// 座標
-		D3DXVECTOR3	position;
 
-		// 同次座標(4x4行列で使う)
-		float		rhw;
+		//2D頂点フォーマット
+		typedef struct
+		{
+			// 座標
+			D3DXVECTOR3	position;
 
-		// 頂点色
-		D3DCOLOR	color, specular;
+			// 同次座標(4x4行列で使う)
+			float		rhw;
 
-		// UV
-		FLOAT		tu, tv;
+			// 頂点色
+			D3DCOLOR	color, specular;
 
-	} D3DTLSprite;
+			// UV
+			FLOAT		tu, tv;
 
-
-	//2Dポリゴン用
-	const int D3DFVF_SPRITE = (D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_SPECULAR | D3DFVF_TEX1);
-
-
-	class iSprite
-	{
-	private:
-
-		IDirect3DVertexBuffer9 * m_pVB;
-		IDirect3DDevice9 * m_pDevice;
-		IDirect3DTexture9 * m_pTexture;
+		} D3DTLSprite;
 
 
-	public:
-
-		iSprite();
-		virtual ~iSprite();
-
-		void Draw();
-
-		void Initialize(IDirect3DDevice9 * device);
-		void Finalize();
-
-		void Set(const utility::Rect<float> &rect, const utility::UV &uv, const D3DCOLOR & color, bool is_enable_alphatest, bool is_enable_alphablending);
-
-		void SetTexture(IDirect3DTexture9 * pTexture);
-
-	};
+		//2Dポリゴン用
+		const int D3DFVF_SPRITE = (D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_SPECULAR | D3DFVF_TEX1);
 
 
+		class iSprite
+		{
+		private:
+
+			IDirect3DVertexBuffer9 * m_pVB;
+			IDirect3DDevice9 * m_pDevice;
+			IDirect3DTexture9 * m_pTexture;
+
+
+		public:
+
+			iSprite();
+			virtual ~iSprite();
+
+			void Draw();
+
+			void Initialize(IDirect3DDevice9 * device);
+			void Finalize();
+
+			void Set(const utility::Rect<float> &rect, const utility::UV &uv, const D3DCOLOR & color, bool is_enable_alphatest, bool is_enable_alphablending);
+
+			void SetTexture(IDirect3DTexture9 * pTexture);
+
+		};
+
+
+	}
 }

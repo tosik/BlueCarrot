@@ -4,31 +4,32 @@
 
 #include <cassert>
 
-
-namespace network
+namespace BlueCarrot
 {
-
-
-	Network::Network()
+	namespace network
 	{
-		Create();
-	}
 
-	Network::~Network()
-	{
-	}
 
-	void Network::Create()
-	{
-	}
+		Network::Network()
+		{
+			Create();
+		}
 
-	void Network::Connect(std::string address, unsigned short port)
-	{
-	}
+		Network::~Network()
+		{
+		}
 
-	void Network::Update()
-	{
-	}
+		void Network::Create()
+		{
+		}
 
+		void Network::Connect(std::string address, unsigned short port)
+		{
+		}
+
+		void Network::Update()
+		{
+		}
+
+	}
 }
-

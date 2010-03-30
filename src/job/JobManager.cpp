@@ -2,95 +2,98 @@
 #include "job/JobManager.h"
 #include "debug/Debug.h"
 
-namespace job
+namespace BlueCarrot
 {
-	JobManager::JobManager()
-		: m_pRunningJob(NULL)
+	namespace job
 	{
-	}
-
-	JobManager::~JobManager()
-	{
-	}
-
-	void JobManager::RegisterJob(Job * pJob)
-	{
-		DebugOut("JobManager::RegisterJob\n");
-
-		m_MutexJobs.Lock();
+		JobManager::JobManager()
+			: m_pRunningJob(NULL)
 		{
-			PushJob(pJob);
 		}
-		m_MutexJobs.Unlock();
-	}
 
-	void JobManager::PushJob(Job * pJob)
-	{
-		m_Jobs.push_back(pJob);
-	}
-
-	Job * JobManager::PopJob()
-	{
-		Job * pJob = NULL;
-		if ( m_Jobs.size() != 0 )
+		JobManager::~JobManager()
 		{
-			pJob = m_Jobs.front();
-			m_Jobs.erase(m_Jobs.begin());
 		}
-		return pJob;
-	}
 
-	void JobManager::ExecuteJobs()
-	{
-		// [NOTE] 通常は、この関数はジョブスレッドから呼ばれる
-
-		// 処理中のジョブがなければ
-		if ( ! m_pRunningJob )
+		void JobManager::RegisterJob(Job * pJob)
 		{
-			// 処理するジョブを取得する
+			DebugOut("JobManager::RegisterJob\n");
+
 			m_MutexJobs.Lock();
 			{
-				m_pRunningJob = PopJob();
+				PushJob(pJob);
 			}
 			m_MutexJobs.Unlock();
 		}
 
-		// 処理中のジョブがあれば
-		if ( m_pRunningJob )
+		void JobManager::PushJob(Job * pJob)
 		{
-			// ジョブを処理する
-			m_pRunningJob->OnExec();
+			m_Jobs.push_back(pJob);
+		}
 
-			// ジョブが終了したら NULL にし、削除リストに登録する
-			if ( m_pRunningJob->IsEnd() )
+		Job * JobManager::PopJob()
+		{
+			Job * pJob = NULL;
+			if ( m_Jobs.size() != 0 )
 			{
-				m_MutexEndedJobs.Lock();
+				pJob = m_Jobs.front();
+				m_Jobs.erase(m_Jobs.begin());
+			}
+			return pJob;
+		}
+
+		void JobManager::ExecuteJobs()
+		{
+			// [NOTE] 通常は、この関数はジョブスレッドから呼ばれる
+
+			// 処理中のジョブがなければ
+			if ( ! m_pRunningJob )
+			{
+				// 処理するジョブを取得する
+				m_MutexJobs.Lock();
 				{
-					m_EndedJobs.push_back(m_pRunningJob);
+					m_pRunningJob = PopJob();
 				}
-				m_MutexEndedJobs.Unlock();
-
-				m_pRunningJob = NULL;
+				m_MutexJobs.Unlock();
 			}
-		}
-	}
 
-	void JobManager::DeleteEndedJobs()
-	{
-		m_MutexEndedJobs.Lock();
-		{
-			// 終了したジョブの終了処理を行う
-			Jobs::iterator it = m_EndedJobs.begin();
-			Jobs::iterator it_end = m_EndedJobs.end();
-			for ( ; it != it_end ; it ++ )
+			// 処理中のジョブがあれば
+			if ( m_pRunningJob )
 			{
-				(*it)->OnEnd();
+				// ジョブを処理する
+				m_pRunningJob->OnExec();
+
+				// ジョブが終了したら NULL にし、削除リストに登録する
+				if ( m_pRunningJob->IsEnd() )
+				{
+					m_MutexEndedJobs.Lock();
+					{
+						m_EndedJobs.push_back(m_pRunningJob);
+					}
+					m_MutexEndedJobs.Unlock();
+
+					m_pRunningJob = NULL;
+				}
 			}
-
-			// 全部消去
-			m_EndedJobs.clear();
 		}
-		m_MutexEndedJobs.Unlock();
-	}
 
+		void JobManager::DeleteEndedJobs()
+		{
+			m_MutexEndedJobs.Lock();
+			{
+				// 終了したジョブの終了処理を行う
+				Jobs::iterator it = m_EndedJobs.begin();
+				Jobs::iterator it_end = m_EndedJobs.end();
+				for ( ; it != it_end ; it ++ )
+				{
+					(*it)->OnEnd();
+				}
+
+				// 全部消去
+				m_EndedJobs.clear();
+			}
+			m_MutexEndedJobs.Unlock();
+		}
+
+	}
 }

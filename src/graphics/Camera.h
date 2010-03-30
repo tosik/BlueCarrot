@@ -6,39 +6,42 @@
 #include "utility/AutoImpl.h"
 
 
-namespace graphics
+namespace BlueCarrot
 {
-
-	class Camera
-		: public utility::AutoImpl
+	namespace graphics
 	{
-	public:
-		Camera();
-		virtual ~Camera();
 
-		void CreateImpl();
-		void DestroyImpl();
+		class Camera
+			: public utility::AutoImpl
+		{
+		public:
+			Camera();
+			virtual ~Camera();
 
-		void Initialize(DeviceInformation * pDeviceInformation);
-		void Update();
+			void CreateImpl();
+			void DestroyImpl();
 
-		void SetFOV(float fov);
-		void SetAspect(float aspect);
-		void SetEye(const utility::Vector3 & eye);
-		void SetLookat(const utility::Vector3 & lookat);
-		void SetUp(const utility::Vector3 & up);
-		utility::Vector3 GetEye();
-		utility::Vector3 GetLookat();
-		utility::Vector3 GetUp();
+			void Initialize(DeviceInformation * pDeviceInformation);
+			void Update();
 
-		void MoveEye(const utility::Vector3 & amount);
+			void SetFOV(float fov);
+			void SetAspect(float aspect);
+			void SetEye(const utility::Vector3 & eye);
+			void SetLookat(const utility::Vector3 & lookat);
+			void SetUp(const utility::Vector3 & up);
+			utility::Vector3 GetEye();
+			utility::Vector3 GetLookat();
+			utility::Vector3 GetUp();
 
-		void MoveLookat(const utility::Vector3 & amount);
+			void MoveEye(const utility::Vector3 & amount);
 
-
-	private:
-
-	};
+			void MoveLookat(const utility::Vector3 & amount);
 
 
+		private:
+
+		};
+
+
+	}
 }

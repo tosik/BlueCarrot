@@ -1,14 +1,17 @@
 
 #include "job/Job.h"
 
-namespace job
+namespace BlueCarrot
 {
-	Job::Job()
-		: m_IsEnd(false)
+	namespace job
 	{
-	}
+		Job::Job()
+			: m_IsEnd(false)
+		{
+		}
 
-	Job::~Job()
-	{
+		Job::~Job()
+		{
+		}
 	}
 }

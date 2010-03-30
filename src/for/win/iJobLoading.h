@@ -7,24 +7,27 @@
 #include <fstream>
 
 
-namespace job
+namespace BlueCarrot
 {
-	class iJobLoading
+	namespace job
 	{
-		friend class JobLoading;
+		class iJobLoading
+		{
+			friend class JobLoading;
 
-	private:
-		std::ifstream m_FileStream;
+		private:
+			std::ifstream m_FileStream;
 
-	public:
-		iJobLoading();
+		public:
+			iJobLoading();
 
-		virtual ~iJobLoading();
+			virtual ~iJobLoading();
 
-	private:
-		void Open(std::string filename);
-		void Close();
-		void Load(void ** buf, unsigned int & size);
+		private:
+			void Open(std::string filename);
+			void Close();
+			void Load(void ** buf, unsigned int & size);
 
-	};
+		};
+	}
 }

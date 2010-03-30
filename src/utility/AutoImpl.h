@@ -21,14 +21,17 @@ void iHoge::DestroyImpl()
 }
 */
 
-namespace utility
+namespace BlueCarrot
 {
-	class AutoImpl
+	namespace utility
 	{
-	protected:
-		void * m_pImpl;
+		class AutoImpl
+		{
+		protected:
+			void * m_pImpl;
 
-		virtual void CreateImpl() = 0;
-		virtual void DestroyImpl() = 0;
-	};
+			virtual void CreateImpl() = 0;
+			virtual void DestroyImpl() = 0;
+		};
+	}
 }

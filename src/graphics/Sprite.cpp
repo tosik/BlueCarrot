@@ -2,17 +2,20 @@
 #include "graphics/Sprite.h"
 #include "graphics/DeviceInformation.h"
 
-namespace graphics
+namespace BlueCarrot
 {
-
-	Sprite::Sprite()
+	namespace graphics
 	{
-		CreateImpl();
-	}
 
-	Sprite::~Sprite()
-	{
-		DestroyImpl();
-	}
+		Sprite::Sprite()
+		{
+			CreateImpl();
+		}
 
+		Sprite::~Sprite()
+		{
+			DestroyImpl();
+		}
+
+	}
 }

@@ -2,16 +2,18 @@
 #include "utility/Time.h"
 #include <windows.h>
 
-namespace utility
+namespace BlueCarrot
 {
-	unsigned int GetNowTime()
+	namespace utility
 	{
-		return static_cast<unsigned int>(timeGetTime());
-	}
+		unsigned int GetNowTime()
+		{
+			return static_cast<unsigned int>(timeGetTime());
+		}
 
-	void Sleep(unsigned int time)
-	{
-		::Sleep(time);
+		void Sleep(unsigned int time)
+		{
+			::Sleep(time);
+		}
 	}
 }
-

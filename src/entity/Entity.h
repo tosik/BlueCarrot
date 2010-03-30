@@ -1,9 +1,12 @@
 
 #pragma once
 
-namespace entity
+namespace BlueCarrot
 {
-	class Entity
+	namespace entity
 	{
-	};
+		class Entity
+		{
+		};
+	}
 }

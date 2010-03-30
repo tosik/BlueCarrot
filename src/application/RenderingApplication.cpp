@@ -4,43 +4,45 @@
 #include "graphics/Renderer.h"
 #include "scene/SceneRendering.h"
 
-
-namespace application
+namespace BlueCarrot
 {
-
-	RenderingApplication::RenderingApplication()
+	namespace application
 	{
-	}
 
-	RenderingApplication::~RenderingApplication()
-	{
-	}
-
-	void RenderingApplication::Begin()
-	{
-		GetGlobalInstance()->GetRenderer()->Initialize();
-	}
-
-	void RenderingApplication::End()
-	{
-		GetGlobalInstance()->GetRenderer()->Finalize();
-	}
-
-	void RenderingApplication::OnExec(unsigned int /*elapsed_time*/)
-	{
-	}
-
-	void RenderingApplication::OnRender()
-	{
-		graphics::Renderer * renderer = GetGlobalInstance()->GetRenderer();
-
-		// •`‰æ
-		renderer->Begin();
+		RenderingApplication::RenderingApplication()
 		{
-			// ƒV[ƒ“‚Ì•`‰æ
-			static_cast<SceneRendering*>(GetNowScene())->Render();
 		}
-		renderer->End();
-	}
 
+		RenderingApplication::~RenderingApplication()
+		{
+		}
+
+		void RenderingApplication::Begin()
+		{
+			GetGlobalInstance()->GetRenderer()->Initialize();
+		}
+
+		void RenderingApplication::End()
+		{
+			GetGlobalInstance()->GetRenderer()->Finalize();
+		}
+
+		void RenderingApplication::OnExec(unsigned int /*elapsed_time*/)
+		{
+		}
+
+		void RenderingApplication::OnRender()
+		{
+			graphics::Renderer * renderer = GetGlobalInstance()->GetRenderer();
+
+			// •`‰æ
+			renderer->Begin();
+			{
+				// ƒV[ƒ“‚Ì•`‰æ
+				static_cast<SceneRendering*>(GetNowScene())->Render();
+			}
+			renderer->End();
+		}
+
+	}
 }

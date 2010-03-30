@@ -5,28 +5,31 @@
 #include <d3dx9.h>
 
 
-namespace graphics
+namespace BlueCarrot
 {
-
-	class iLight
+	namespace graphics
 	{
-	private:
-		D3DXVECTOR3	m_Dir;
-		D3DLIGHT9	m_Light;
 
-		IDirect3DDevice9 * m_pDevice;
-
-	public:
-		void Initialize(IDirect3DDevice9 * device);
-		void Update();
-
-		void SetDir(D3DXVECTOR3 &dir)
+		class iLight
 		{
-			m_Dir = dir;
-		}
+		private:
+			D3DXVECTOR3	m_Dir;
+			D3DLIGHT9	m_Light;
 
-	private:
+			IDirect3DDevice9 * m_pDevice;
 
-	};
+		public:
+			void Initialize(IDirect3DDevice9 * device);
+			void Update();
 
+			void SetDir(D3DXVECTOR3 &dir)
+			{
+				m_Dir = dir;
+			}
+
+		private:
+
+		};
+
+	}
 }

@@ -1,14 +1,17 @@
 
 #include "job/Mutex.h"
 
-namespace job
+namespace BlueCarrot
 {
-	Mutex::Mutex()
+	namespace job
 	{
-		CreateImpl();
-	}
-	Mutex::~Mutex()
-	{
-		DestroyImpl();
+		Mutex::Mutex()
+		{
+			CreateImpl();
+		}
+		Mutex::~Mutex()
+		{
+			DestroyImpl();
+		}
 	}
 }

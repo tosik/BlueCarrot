@@ -12,6 +12,7 @@
 #include "utility/KeyManager.h"
 #include "utility/Type.h"
 
+using namespace BlueCarrot;
 
 SceneSample::SceneSample(SceneID scene_id)
 	: SceneRendering(scene_id)

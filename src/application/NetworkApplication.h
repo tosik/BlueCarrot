@@ -7,39 +7,42 @@
 #include "Application.h"
 
 
-namespace application
+namespace BlueCarrot
 {
-
-	// ネットワークアプリケーション用クラス
-	class NetworkApplication
-		: virtual public Application
+	namespace application
 	{
-	private:
+
+		// ネットワークアプリケーション用クラス
+		class NetworkApplication
+			: virtual public Application
+		{
+		private:
 
 
-	protected:
+		protected:
 
 
-	public:
+		public:
 
-		NetworkApplication();
-		virtual ~NetworkApplication();
+			NetworkApplication();
+			virtual ~NetworkApplication();
 
-		// アプリケーションの開始・終了時に必ず呼ぶ
-		void Begin();
-		void End();
+			// アプリケーションの開始・終了時に必ず呼ぶ
+			void Begin();
+			void End();
 
-		// メインループ
-		virtual void OnExec(unsigned int elapsed_time);
-
-
-	public:
+			// メインループ
+			virtual void OnExec(unsigned int elapsed_time);
 
 
-	private:
+		public:
+
+
+		private:
 
 
 
-	};
+		};
 
+	}
 }
