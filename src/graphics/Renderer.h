@@ -62,5 +62,7 @@ namespace graphics
 		{
 			return &m_Sprite;
 		}
+
+		void SetScreenSize(const utility::Size<int> & size);
 	};
 }

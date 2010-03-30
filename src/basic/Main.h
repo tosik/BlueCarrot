@@ -3,6 +3,7 @@
 
 #include "scene/SceneBase.h"
 #include "scene/SceneID.h"
+#include "utility/Type.h"
 
 void EntryPoint();
 
@@ -18,3 +19,6 @@ SceneBase * CreateScene(int scene_id);
 // アプリケーション開始時にコールバックされる
 SceneID GetStartupSceneID();
 
+// スクリーンのサイズを返す関数
+// 描画初期化時にコールバックされる
+utility::Size<int> GetScreenSize();

@@ -67,6 +67,11 @@ namespace graphics
 		bool IsWide();
 		bool ProcessMessage();
 
+		void SetScreenSize(const utility::Size<int> & size)
+		{
+			m_ScreenSize = size;
+		}
+
 		void Begin();
 		void End();
 		void SwapFrameBuffer();

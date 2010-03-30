@@ -1,6 +1,7 @@
 
 #include "graphics/Renderer.h"
 #include "basic/GlobalInstance.h"
+#include "basic/Main.h"
 
 
 namespace graphics
@@ -17,6 +18,7 @@ namespace graphics
 
 	void Renderer::Initialize()
 	{
+		SetScreenSize(GetScreenSize());
 		InitializeDevice();
 		GetTextRenderer()->Initialize();
 		GetCamera()->Initialize(GetGlobalInstance()->GetDeviceInformation());

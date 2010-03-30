@@ -61,6 +61,11 @@ namespace graphics
 		return reinterpret_cast<iRenderer *>(m_pImpl)->ProcessMessage();
 	}
 
+	void Renderer::SetScreenSize(const utility::Size<int> & size)
+	{
+		reinterpret_cast<iRenderer *>(m_pImpl)->SetScreenSize(size);
+	}
+
 
 	iRenderer::iRenderer()
 		: m_IsFirstFrame(true)
@@ -80,7 +85,6 @@ namespace graphics
 		m_Name	= L"WinAppName";
 		m_Title	= L"WinAppTitle";
 		m_WindowStyle = WS_OVERLAPPED | WS_SYSMENU | WS_BORDER;
-		m_ScreenSize = utility::Size<int>(640, 480);
 		m_IsFullScreen = false;
 
 
