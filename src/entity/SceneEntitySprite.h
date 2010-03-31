@@ -40,6 +40,16 @@ namespace BlueCarrot
 			{
 				return m_Color;
 			}
+
+			void SetUV(utility::UV uv)
+			{
+				m_UV = uv;
+			}
+			void SetColor(utility::Color color)
+			{
+				m_Color = color;
+			}
+
 			bool IsEnableAlphatest()
 			{
 				return m_IsEnableAlphatest;
