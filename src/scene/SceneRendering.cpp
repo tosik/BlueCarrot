@@ -144,6 +144,9 @@ namespace BlueCarrot
 		SceneEntityList::iterator it		= m_SceneEntityList.begin();
 		SceneEntityList::iterator it_end	= m_SceneEntityList.end();
 
+		// •`‰æ‡‚ð•À‚Ñ‘Ö‚¦‚é
+		std::sort(it, it_end, LessZSort());
+
 		for ( ; it != it_end ; it ++ )
 		{
 			if ( (*it)->IsEnableRendering() )
