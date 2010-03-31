@@ -55,6 +55,7 @@ namespace BlueCarrot
 		void iJobLoading::Open(std::string filename)
 		{
 			m_FileStream.open(filename.c_str(), std::ios::binary | std::ios::in);
+			assert ( m_FileStream.good() );
 		}
 
 		void iJobLoading::Close()
@@ -64,8 +65,6 @@ namespace BlueCarrot
 
 		void iJobLoading::Load(void ** buf, unsigned int & size)
 		{
-			assert ( m_FileStream.good() );
-
 			// ƒTƒCƒY‚ðŽæ“¾
 			size = static_cast<std::size_t>(m_FileStream.seekg(0, std::ios::end).tellg());
 			m_FileStream.seekg(0, std::ios::beg);
