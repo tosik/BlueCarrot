@@ -27,6 +27,7 @@ namespace BlueCarrot
 			virtual void Draw();
 			virtual void CalculateAnimation();
 			virtual void OnLoaded();
+			virtual void Update(unsigned int elapsed_time);
 
 			graphics::Texture * GetTexture()
 			{

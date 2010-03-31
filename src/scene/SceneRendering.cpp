@@ -29,35 +29,6 @@ namespace BlueCarrot
 	{
 	}
 
-	void SceneRendering::Update(unsigned int elapsed_time)
-	{
-	}
-
-	void SceneRendering::AddSceneEntity(entity::SceneEntity * pSceneEntity)
-	{
-		SceneEntityList::iterator pos = std::find(m_SceneEntityList.begin(), m_SceneEntityList.end(), pSceneEntity);
-		assert ( pos == m_SceneEntityList.end() ); // 以前に同じものを登録していないか？
-
-		m_SceneEntityList.push_back(pSceneEntity);
-
-		// 読み込みを開始する
-		pSceneEntity->Load();
-	}
-
-	void SceneRendering::RemoveSceneEntity(entity::SceneEntity * pSceneEntity)
-	{
-		SceneEntityList::iterator pos = std::find(m_SceneEntityList.begin(), m_SceneEntityList.end(), pSceneEntity);
-		assert ( pos != m_SceneEntityList.end() ); // 存在しないものを削除しようとしていないか？
-		m_SceneEntityList.erase(pos);
-
-		// [TODO] 読み込みをキャンセルする
-	}
-
-	void SceneRendering::ClearAllSceneEntity()
-	{
-		m_SceneEntityList.clear();
-	}
-
 	void SceneRendering::Render()
 	{
 		// [NOTE] 描画の流れを定義する

@@ -16,6 +16,7 @@ namespace BlueCarrot
 			, Rect(0.f, 0.f, 1.f, 1.f)
 			, m_pTexture(NULL)
 		{
+			DisableUpdating();
 			DisableRendering();
 			DisableAnimating();
 			DisableAlphatest();
@@ -32,6 +33,7 @@ namespace BlueCarrot
 		{
 			m_pTexture = new graphics::Texture(GetBuffer(), GetSize());
 
+			EnableUpdating();
 			EnableRendering();
 			EnableAnimating();
 		}
@@ -42,6 +44,10 @@ namespace BlueCarrot
 		}
 
 		void SceneEntitySprite::CalculateAnimation()
+		{
+		}
+
+		void SceneEntitySprite::Update(unsigned int elapsed_time)
 		{
 		}
 	}

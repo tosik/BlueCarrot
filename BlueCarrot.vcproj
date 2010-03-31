@@ -437,6 +437,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\entity\EntityUpdating.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\entity\EntityZSort.h"
 				>
 			</File>
