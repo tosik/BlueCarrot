@@ -74,6 +74,11 @@ namespace BlueCarrot
 				m_ScreenSize = size;
 			}
 
+			utility::Size<int> GetScreenSize()
+			{
+				return m_ScreenSize;
+			}
+
 			void Begin();
 			void End();
 			void SwapFrameBuffer();

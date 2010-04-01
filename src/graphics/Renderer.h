@@ -6,6 +6,7 @@
 #include "graphics/Light.h"
 #include "graphics/Sprite.h"
 #include "utility/AutoImpl.h"
+#include "utility/Type.h"
 
 
 namespace BlueCarrot
@@ -37,6 +38,12 @@ namespace BlueCarrot
 			float GetAspect();
 			void ChangeAspect(bool is_wide);
 			bool IsWide();
+			utility::Rect<float> GetScreenRect()
+			{
+				return utility::Rect<float>(0.f, 0.f, (float)GetScreenSize().width, (float)GetScreenSize().height);
+			}
+			utility::Size<int> GetScreenSize();
+
 			// メッセージを処理する。false が帰ってきたら終了処理をする必要がある。
 			bool ProcessMessage();
 

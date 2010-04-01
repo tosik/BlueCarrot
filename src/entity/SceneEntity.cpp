@@ -8,6 +8,7 @@ namespace BlueCarrot
 	{
 		SceneEntity::SceneEntity(std::string filename)
 			: EntityLoading(filename)
+			, m_IsCulling(false)
 		{
 		}
 

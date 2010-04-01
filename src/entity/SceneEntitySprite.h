@@ -29,6 +29,11 @@ namespace BlueCarrot
 			virtual void OnLoaded();
 			virtual void Update(unsigned int elapsed_time);
 
+			virtual bool CanCull(const utility::Rect<float> & screen)
+			{
+				return ! IsIntersect(screen);
+			}
+
 			graphics::Texture * GetTexture()
 			{
 				return m_pTexture;

@@ -67,6 +67,11 @@ namespace BlueCarrot
 			reinterpret_cast<iRenderer *>(m_pImpl)->SetScreenSize(size);
 		}
 
+		utility::Size<int> Renderer::GetScreenSize()
+		{
+			return reinterpret_cast<iRenderer *>(m_pImpl)->GetScreenSize();
+		}
+
 
 		iRenderer::iRenderer()
 			: m_IsFirstFrame(true)

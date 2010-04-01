@@ -4,6 +4,7 @@
 #include "basic/GlobalInstance.h"
 #include "graphics/Renderer.h"
 #include "utility/Time.h"
+#include "entity/SceneEntity.h"
 
 #include <sstream>
 #include <algorithm>
@@ -86,8 +87,17 @@ namespace BlueCarrot
 
 	void SceneRendering::CalculateCulling()
 	{
-		// [TODO] scene entity の位置から考えてカリングし、
+		// scene entity の位置から考えてカリングし、
 		// scene entity の描画に影響する計算を一切行わないように設定する
+
+		SceneEntityList::iterator it		= m_SceneEntityList.begin();
+		SceneEntityList::iterator it_end	= m_SceneEntityList.end();
+
+		for ( ; it != it_end ; it ++ )
+		{
+			// カリング可能であればカリングする
+			(*it)->SetCulling((*it)->CanCull(GetGlobalInstance()->GetRenderer()->GetScreenRect()));
+		}
 	}
 
 	void SceneRendering::CalculateAnimation()
@@ -99,7 +109,7 @@ namespace BlueCarrot
 
 		for ( ; it != it_end ; it ++ )
 		{
-			if ( (*it)->IsEnableAnimating() )
+			if ( (*it)->IsEnableAnimating() && ! (*it)->IsCulling() )
 				(*it)->CalculateAnimation();
 		}
 	}
@@ -120,7 +130,7 @@ namespace BlueCarrot
 
 		for ( ; it != it_end ; it ++ )
 		{
-			if ( (*it)->IsEnableRendering() )
+			if ( (*it)->IsEnableRendering() && ! (*it)->IsCulling() )
 				(*it)->Draw();
 		}
 	}

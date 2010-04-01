@@ -129,6 +129,12 @@ namespace BlueCarrot
 				SetPosition(rect);
 				SetSize(rect);
 			}
+
+			bool IsIntersect(const utility::Rect<T> & rect)
+			{
+				return ! ( left >= ( rect.left + rect.width ) || ( left + width ) <= rect.left ||
+							top >= ( rect.top + rect.height ) || ( top + height ) <= rect.top );
+			}
 		};
 
 		struct UV
