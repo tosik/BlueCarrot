@@ -42,6 +42,10 @@ namespace BlueCarrot
 
 		void KeyManager::Update()
 		{
+			// 前の状態を覚えておく
+			for ( int i = 0 ; i < (int)key::End ; i ++ )
+				m_PreviousStates[i] = IsPushing((key::Key)i);
+
 			reinterpret_cast<iKeyManager *>(m_pImpl)->Update();
 		}
 
@@ -50,6 +54,18 @@ namespace BlueCarrot
 			BYTE state = reinterpret_cast<iKeyManager *>(m_pImpl)->GetKeyState(KeyToDIKEY(key));
 			return ( ( state & 0x80 ) != 0 );
 		}
+
+		bool KeyManager::IsJustPushing(key::Key key)
+		{
+			// 今押していて、前は押していなかった
+			return ( IsPushing(key) && ! IsPushedPrevious(key) );
+		}
+
+		bool KeyManager::IsPushedPrevious(key::Key key)
+		{
+			return m_PreviousStates[(int)key];
+		}
+
 
 		iKeyManager::iKeyManager()
 		{

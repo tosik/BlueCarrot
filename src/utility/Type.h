@@ -91,7 +91,7 @@ namespace BlueCarrot
 				return (*this);
 			}
 
-			void SetPosition(const utility::Position<T> & rect)
+			void SetPosition(const Position<T> & rect)
 			{
 				left = rect.left;
 				top = rect.top;
@@ -111,18 +111,6 @@ namespace BlueCarrot
 			Rect(T l, T t, T w, T h)
 				: Position(l, t), Size(w, h) {}
 			Rect() {}
-
-			void SetPosition(Position<T> position)
-			{
-				left = position.left;
-				top = position.top;
-			}
-
-			void SetSize(Size<T> size)
-			{
-				width = size.width;
-				height = size.height;
-			}
 
 			void SetRect(const utility::Rect<T> & rect)
 			{
