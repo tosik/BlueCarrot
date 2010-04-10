@@ -128,6 +128,16 @@ namespace BlueCarrot
 				return ! ( left >= ( rect.left + rect.width ) || ( left + width ) <= rect.left ||
 							top >= ( rect.top + rect.height ) || ( top + height ) <= rect.top );
 			}
+
+			Rect<T> operator+(const Rect<T> & rect)
+			{
+				return Rect<T>(left + rect.left, top + rect.top, width + rect.width, height + rect.height);
+			}
+
+			Rect<T> operator-(const Rect<T> & rect)
+			{
+				return Rect<T>(left - rect.left, top - rect.top, width - rect.width, height - rect.height);
+			}
 		};
 
 		struct UV
