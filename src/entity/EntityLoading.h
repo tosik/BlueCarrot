@@ -34,6 +34,11 @@ namespace BlueCarrot
 			// 読み込みが完了した時に呼び出される
 			virtual void OnLoaded() = 0;
 
+			bool IsLoaded()
+			{
+				return m_LoadedSize != 0;
+			}
+
 		private:
 			// 読み込みが完了したバッファを設定する
 			void SetLoadedBuffer(void * buf, unsigned int size)
