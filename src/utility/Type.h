@@ -101,6 +101,11 @@ namespace BlueCarrot
 			{
 				(*this) += move;
 			}
+
+			bool operator==(const Position<T> & pos)
+			{
+				return ( pos.left == left && pos.top == top );
+			}
 		};
 
 		template<typename T>
